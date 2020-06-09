@@ -1,7 +1,7 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
 
     <br>
-    <h2>Driver</h2>
+    <h2>Truck Payment</h2>
     {{!-- <label class="heading">Owner History</label> --}}
     <br>
     <a href="/b_division_pages/create_b_division" style="font-size: 20px">Create</a>
@@ -35,17 +35,17 @@
                         {{#each b_division}}
                         <tr>
                             {{!-- <td>{{this.id}}</td> --}}
-                            <td style="width:50px">{{this.div_code}}</td>
-                            <td style="width:100px">{{this.div_name}}</td>
-                            <td style="width:50px">{{this.div_code}}</td>
-                            <td style="width:100px">{{this.div_name}}</td>
-                            <td style="width:50px">{{this.div_code}}</td>
-                            <td style="width:100px">{{this.div_name}}</td>
-                            <td style="width:50px">{{this.div_code}}</td>
-                            <td style="width:100px">{{this.div_name}}</td>
-                            <td style="width:50px">{{this.div_code}}</td>
-                            <td style="width:100px">{{this.div_name}}</td>
-                            <td style="width:50px">{{this.div_code}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_truck_no}}</td>
+                            <td style="width:100px">{{this.input_truck_payment_owner_id}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_owner_name}}</td>
+                            <td style="width:100px">{{this.input_truck_payment_driver_id}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_driver_name}}</td>
+                            <td style="width:100px">{{this.input_truck_payment_truck_total_amount}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_down_payment}}</td>
+                            <td style="width:100px">{{this.input_truck_payment_sale_date}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_pay_month}}</td>
+                            <td style="width:100px">{{this.input_truck_payment_paid_amount}}</td>
+                            <td style="width:50px">{{this.input_truck_payment_balance_amount}}</td>
                             <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a>
                             </td>
                             <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>

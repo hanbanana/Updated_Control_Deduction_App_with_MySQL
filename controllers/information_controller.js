@@ -143,7 +143,7 @@ router.get("/information_driver", authAdmin, function (req, res) {
 });
 
 router.get("/input_truck_payment", authAdmin, function (req, res) {
-    connection.query("SELECT * FROM b_division;", function (err, data) {
+    connection.query("SELECT * FROM input_truck_payment_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -160,7 +160,7 @@ router.get("/input_truck_payment", authAdmin, function (req, res) {
 });
 
 router.get("/input_part_purchase", authAdmin, function (req, res) {
-    connection.query("SELECT * FROM b_division;", function (err, data) {
+    connection.query("SELECT * FROM input_part_purchase_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
