@@ -143,7 +143,7 @@ router.get("/information_driver", authAdmin, function (req, res) {
 });
 
 router.get("/input_truck_payment", authAdmin, function (req, res) {
-    connection.query("SELECT * FROM input_truck_payment_db;", function (err, data) {
+    connection.query("SELECT * FROM b_division;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -160,7 +160,7 @@ router.get("/input_truck_payment", authAdmin, function (req, res) {
 });
 
 router.get("/input_part_purchase", authAdmin, function (req, res) {
-    connection.query("SELECT * FROM input_part_purchase_db;", function (err, data) {
+    connection.query("SELECT * FROM b_division;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -231,13 +231,13 @@ router.get("/create", function (req, res) {
 });
 
 // Use Handlebars to render the create_b_division.handlebars page.
-router.get("/b_division_pages/create_b_division", function (req, res) {
-    connection.query("SELECT * FROM b_division;", function (err, data) {
+router.get("/information_pages/create_information_owner", function (req, res) {
+    connection.query("SELECT * FROM information_owner_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
         else if (req.session.user === "adminSession") {
-            res.render("b_division_pages/create_b_division", { b_division: data });
+            res.render("information_pages/create_information_owner", { b_division: data });
         };
     });
 });
@@ -254,35 +254,35 @@ router.get("/createTruck", function (req, res) {
 });
 
 // Use Handlebars to render the edit_b_division.handlebars page.
-router.get("/b_division_pages/edit_b_division/:id", function (req, res) {
-    connection.query("SELECT * FROM b_division where id = ?", [req.params.id], function (err, data) {
+router.get("/information_pages/edit_information_owner/:id", function (req, res) {
+    connection.query("SELECT * FROM information_owner_db where id = ?", [req.params.id], function (err, data) {
         if (err) {
             return res.status(500).end();
         }
         else if (req.session.user === "adminSession") {
             console.log(data);
-            res.render("b_division_pages/edit_b_division", data[0]);
+            res.render("information_pages/edit_information_owner", data[0]);
         };
     });
 });
 
 // Use Handlebars to render the delete_b_division.handlebars page.
-router.get("/b_division_pages/delete_b_division/:id", function (req, res) {
-    connection.query("SELECT * FROM b_division where id = ?", [req.params.id], function (err, data) {
+router.get("/information_pages/delete_information_owner/:id", function (req, res) {
+    connection.query("SELECT * FROM information_owner_db where id = ?", [req.params.id], function (err, data) {
         if (err) {
             return res.status(500).end();
         }
         else if (req.session.user === "adminSession") {
             console.log(data);
-            res.render("b_division_pages/delete_b_division", data[0]);
+            res.render("information_pages/delete_information_owner", data[0]);
         };
     });
 });
 
 // Create a new list
-router.post("/b_division_list", function (req, res) {
-    connection.query("INSERT INTO b_division (div_code, div_name) VALUES (?, ?)",
-        [req.body.div_code, req.body.div_name], function (err, result) {
+router.post("/information_owner_list", function (req, res) {
+    connection.query("INSERT INTO information_owner_db (information_owner_no, information_owner_name, information_owner_address, information_owner_tel) VALUES (?, ?, ?, ?)",
+        [req.body.information_owner_no, req.body.information_owner_name, req.body.information_owner_address, req.body.information_owner_tel], function (err, result) {
             if (err) {
                 return res.status(500).end();
             }
@@ -293,9 +293,10 @@ router.post("/b_division_list", function (req, res) {
         });
 });
 
+
 // Retrieve all list
-router.get("/b_division_list", function (req, res) {
-    connection.query("SELECT * FROM b_division;", function (err, data) {
+router.get("/information_owner_list", function (req, res) {
+    connection.query("SELECT * FROM information_owner_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -305,9 +306,9 @@ router.get("/b_division_list", function (req, res) {
 });
 
 // Update a list
-router.put("/b_division_list/:id", function (req, res) {
-    connection.query("UPDATE b_division SET div_code = ?, div_name = ? WHERE id = ?",
-        [req.body.div_code, req.body.div_name, req.params.id],
+router.put("/information_owner_list/:id", function (req, res) {
+    connection.query("UPDATE information_owner_db SET information_owner_no = ?, information_owner_name = ?, information_owner_address = ?, information_owner_tel = ? WHERE id = ?",
+        [req.body.information_owner_no, req.body.information_owner_name, req.body.information_owner_address, req.body.information_owner_tel, req.params.id],
         function (err, result) {
             if (err) {
                 // If an error occurred, send a generic server failure
@@ -323,8 +324,8 @@ router.put("/b_division_list/:id", function (req, res) {
 });
 
 // Delete a list
-router.delete("/b_division_list/:id", function (req, res) {
-    connection.query("DELETE FROM b_division WHERE id = ?", [req.params.id], function (err, result) {
+router.delete("/information_owner_list/:id", function (req, res) {
+    connection.query("DELETE FROM information_owner_db WHERE id = ?", [req.params.id], function (err, result) {
         if (err) {
             // If an error occurred, send a generic server failure
             return res.status(500).end();

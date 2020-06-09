@@ -4,7 +4,7 @@
     <h2>Owner</h2>
     {{!-- <label class="heading">Owner History</label> --}}
     <br>
-    <a href="/b_truck_pages/create_b_truck" style="font-size: 20px">Create</a>
+    <a href="/information_pages/create_information_owner" style="font-size: 20px">Create</a>
     <br><br>
 
     <div class="form-group" style="width: 1000px">
@@ -18,7 +18,7 @@
                             <th scope="col">NO</th>
                             <th scope="col">Name</th>
                             <th scope="col">Address</th>
-                            <th scope="col">Tell</th>
+                            <th scope="col">Tel</th>
                             <th scope="col">Delete</th>
                             <th scope="col">Edit</th>
                         </tr>
@@ -33,8 +33,8 @@
                             <td style="width:100px">{{this.information_owner_address}}</td>
                             <td style="width:100px">{{this.information_owner_tel}}</td>
                             {{!-- <td><button><a href="delete_b_division/{{this.id}}">Delete</a></button></td> --}}
-                            <td style="width:50px"><a href="/b_truck_pages/delete_b_truck/{{this.id}}">Delete</a></td>
-                            <td style="width:50px"><a href="/b_truck_pages/edit_b_truck/{{this.id}}">Edit</a></td>
+                            <td style="width:50px"><a href="/information_pages/delete_information_owner/{{this.id}}">Delete</a></td>
+                            <td style="width:50px"><a href="/information_pages/edit_information_owner/{{this.id}}">Edit</a></td>
                         </tr>
                         {{/each}}
                     </tbody>
