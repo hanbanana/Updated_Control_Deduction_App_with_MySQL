@@ -1,0 +1,169 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+  <br>
+  <h2>Division</h2>
+  <br>
+  <h4>Create</h4>
+  <br>
+
+  {{!-- Vertical Input Form
+  <form id="createplan">
+    <div class="form-group row form-horizontal">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">BL</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="BL" name="BL" id="BL">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Terminal Name</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Terminal Name" name="Terminal_Name" id="Terminal_Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Container No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Container No." name="Container_No" id="Container_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vasse No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Vassel No." name="Vassel_No" id="Vassel_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ETA</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control form-control-sm" placeholder="ETA" name="ETA" id="ETA">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Weight(kg)</label>
+      <div class="col-sm-10">
+        <input type="number" step="0.001" name="amount" placeholder="0.000" class="form-control form-control-sm"
+          name="Weight" id="Weight">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Seal No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Seal No." name="Seal_No" id="Seal_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Delivery Location</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Delivery Location" name="Delivery_Location"
+          id="Delivery_Location">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Status</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Status_" id="Status_">
+          <option selected>Choose...</option>
+          <option>Done</option>
+          <option>Pending</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Return</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Return_" id="Return_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Close</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Close_" id="Close_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary pull-right" style="display: block; margin: 0 auto;">Save</button>
+  </form> --}}
+
+
+
+
+
+
+  {{!-- On One Line Form- --}}
+  <div class="formDiv">
+
+    <form id="createplan">
+      <div class="form-group-sm row">
+        <div class="col-sm">
+          <label for="ex1">Code</label>
+          <input class="form-control form-control-sm" placeholder="Code" name="Code" id="Code" maxlength="3" required
+            style="width: 60px">
+          <br>
+          <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="width: 170px">
+          <br>
+
+          {{!-- select from DB --}}
+          {{!-- <label for="ex3">Status</label>
+          <select class="form-control form-control-sm" name="Status_" id="Status_" required
+            style="text-transform: uppercase">
+            <option value="" disabled selected>Choose...</option>
+                {{#each b_division}}
+            <option value="{{this.div_code}}">{{this.div_code}}</option>
+                {{/each}}
+            <option>Pending</option>
+          </select>
+          <br> --}}
+
+          {{!-- <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="text-transform: uppercase; width: 100px">
+          <br> --}}
+          <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+        </div>
+
+      </div>
+    </form>
+    <button class="btn btn-secondary btn-sm" style="margin-top: 25px" onclick="window.history.back()">Cancel</button>
+    {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+    <br>
+
+  </div>
+
+</div>
+<br>
+
+<script type="text/javascript">
+
+
+  $("#createplan").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newPlan = {
+      div_code: $("#Code").val().trim(),
+      div_name: $("#Name").val().trim(),
+    };
+
+    // Send the POST request.
+    $.ajax("/b_division_list", {
+      type: "POST",
+      data: newPlan
+    }).then(
+      function () {
+        console.log("created new plan");
+        // Reload the page to get the updated list
+        location.assign("/master_division");
+      }
+    );
+  });
+
+</script>

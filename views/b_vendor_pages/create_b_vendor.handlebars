@@ -1,0 +1,205 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+  <br>
+  <h2>Vendor</h2>
+  <br>
+  <h4>Create</h4>
+  <br>
+
+  {{!-- Vertical Input Form
+  <form id="createplan">
+    <div class="form-group row form-horizontal">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">BL</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="BL" name="BL" id="BL">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Terminal Name</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Terminal Name" name="Terminal_Name" id="Terminal_Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Container No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Container No." name="Container_No" id="Container_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vasse No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Vassel No." name="Vassel_No" id="Vassel_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ETA</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control form-control-sm" placeholder="ETA" name="ETA" id="ETA">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Weight(kg)</label>
+      <div class="col-sm-10">
+        <input type="number" step="0.001" name="amount" placeholder="0.000" class="form-control form-control-sm"
+          name="Weight" id="Weight">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Seal No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Seal No." name="Seal_No" id="Seal_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Delivery Location</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Delivery Location" name="Delivery_Location"
+          id="Delivery_Location">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Status</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Status_" id="Status_">
+          <option selected>Choose...</option>
+          <option>Done</option>
+          <option>Pending</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Return</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Return_" id="Return_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Close</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Close_" id="Close_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary pull-right" style="display: block; margin: 0 auto;">Save</button>
+  </form> --}}
+
+
+
+
+
+
+  {{!-- On One Line Form- --}}
+  <div class="formDiv">
+
+    <form id="createplan">
+
+      <div class="form-group-sm row">
+        <div class="col-sm">
+
+          {{!-- select from DB --}}
+          <label for="ex3">DIV</label>
+          <select class="form-control form-control-sm" name="Div" id="Div" required style="width: 100px">
+            <option value="" disabled selected>Choose...</option>
+            {{#each b_vendor_division}}
+            <option value="{{this.div_code}}">{{this.div_code}}</option>
+            {{/each}}
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+
+          <label for="ex2">VENDOR</label>
+          <input class="form-control form-control-sm" placeholder="VENDOR" name="Code" id="Code" maxlength="45" required
+            style="width: 100px">
+          <br>
+          <label for="ex2">VENDOR NAME</label>
+          <input class="form-control form-control-sm" placeholder="VENDOR NAME" name="Name" id="Name" maxlength="45"
+            required style="width: 170px">
+          <br>
+          <label for="ex2">REGISTRATION NAME 1</label>
+          <input class="form-control form-control-sm" placeholder="REGISTRATION NAME 1" name="Registration_1"
+            id="Registration_1" maxlength="45" required style="width: 170px">
+          <br>
+          <label for="ex2">REGISTRATION NAME 2</label>
+          <input class="form-control form-control-sm" placeholder="REGISTRATION NAME 2" name="Registration_2"
+            id="Registration_2" maxlength="45" required style="width: 170px">
+          <br>
+          <label for="ex2">REGISTRATION ADDRESS</label>
+          <input class="form-control form-control-sm" placeholder="REGISTRATION ADDRESS" name="Registration_address"
+            id="Registration_address" maxlength="45" required style="width: 170px">
+          <br>
+          <label for="ex2">LIEN HOLDER</label>
+          <input class="form-control form-control-sm" placeholder="LIEN HOLDER" name="Lien_Holder" id="Lien_Holder"
+            maxlength="45" required style="width: 170px">
+          <br>
+
+          {{!-- select from DB --}}
+          {{!-- <label for="ex3">Status</label>
+          <select class="form-control form-control-sm" name="Status_" id="Status_" required
+            style="text-transform: uppercase">
+            <option value="" disabled selected>Choose...</option>
+                {{#each b_division}}
+            <option value="{{this.div_code}}">{{this.div_code}}</option>
+                {{/each}}
+            <option>Pending</option>
+          </select>
+          <br> --}}
+
+          {{!-- <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="text-transform: uppercase; width: 100px">
+          <br> --}}
+          <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+        </div>
+
+      </div>
+
+    </form>
+    <button class="btn btn-secondary btn-sm" style="margin-top: 25px" onclick="window.history.back()">Cancel</button>
+    {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+    <br>
+
+  </div>
+
+</div>
+<br>
+
+<script type="text/javascript">
+
+
+  $("#createplan").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newPlan = {
+      vendor_div: $("#Div").val().trim(),
+      vendor_vendor_code: $("#Code").val().trim(),
+      vendor_vendor_name: $("#Name").val().trim(),
+      vendor_registration_name_1: $("#Registration_1").val().trim(),
+      vendor_registration_name_2: $("#Registration_2").val().trim(),
+      vendor_registration_address: $("#Registration_address").val().trim(),
+      vendor_lien_holder: $("#Lien_Holder").val().trim(),
+
+    };
+
+    // Send the POST request.
+    $.ajax("/b_vendor_list", {
+      type: "POST",
+      data: newPlan
+    }).then(
+      function () {
+        console.log("created new plan");
+        // Reload the page to get the updated list
+        location.assign("/master_vendor");
+      }
+    );
+  });
+
+</script>

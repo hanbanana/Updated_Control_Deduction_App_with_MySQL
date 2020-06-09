@@ -1,0 +1,160 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+
+  <br>
+  <h2>Vendor</h2>
+  {{!-- <label class="heading">Owner History</label> --}}
+  <br>
+  <a href="/b_vendor_pages/create_b_vendor" style="font-size: 20px">Create</a>
+  {{!-- <a href="/b_vendor_pages/create_b_vendor_add_div" style="font-size: 20px">Create add div</a> --}}
+  <br><br>
+
+  <div class="form-group" style="width: 1200px">
+    <fieldset>
+      <form action="" class="form-group">
+
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              {{!-- <th scope="col" data-sortable="true">ID#</th> --}}
+              <th scope="col">DIV</th>
+              <th scope="col">VENDOR</th>
+              <th scope="col">VENDOR NAME</th>
+              <th scope="col">REGISTRATION NAME 1</th>
+              <th scope="col">REGISTRATION NAME 2</th>
+              <th scope="col">REGISTRATION ADDRESS</th>
+              <th scope="col">LIEN HOLDER</th>
+              {{!-- <th scope="col">Created</th>
+                <th scope="col">Updated</th> --}}
+              {{!-- <th scope="col">Delete</th> --}}
+              <th scope="col">Delete</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each b_vendor}}
+            <tr>
+              {{!-- <td>{{this.id}}</td> --}}
+              <td style="width:50px">{{this.vendor_div}}</td>
+              <td style="width:50px">{{this.vendor_vendor_code}}</td>
+              <td style="width:180px">{{this.vendor_vendor_name}}</td>
+              <td style="width:220px">{{this.vendor_registration_name_1}}</td>
+              <td style="width:220px">{{this.vendor_registration_name_2}}</td>
+              <td style="width:250px">{{this.vendor_registration_address}}</td>
+              <td style="width:180px">{{this.vendor_lien_holder}}</td>
+              {{!-- <td style="width:170px">{{this.created_date}}</td>
+                <td style="width:170px">{{this.updated_date}}</td> --}}
+              {{!-- <td><button><a href="delete_b_division/{{this.id}}">Delete</a></button></td> --}}
+              <td style="width:50px"><a href="/b_vendor_pages/delete_b_vendor/{{this.id}}">Delete</a></td>
+              <td style="width:50px"><a href="/b_vendor_pages/edit_b_vendor/{{this.id}}">Edit</a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+
+        </table>
+
+      </form>
+      <!--END OF FORM ^^-->
+    </fieldset>
+
+    <hr />
+  </div>
+
+
+  {{!-- <div class="formDiv">
+  <h4>Create New</h4>
+  <form id="createplan">
+    <div class="form-group-sm row">
+      <div class="col-sm">
+        <label for="ex1">B/L</label>
+        <input class="form-control form-control-sm" placeholder="BL" name="BL" id="BL" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex2">Terminal_Name</label>
+        <input class="form-control form-control-sm" placeholder="Terminal Name" name="Terminal_Name" id="Terminal_Name" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex3">Container_No.</label>
+        <input class="form-control form-control-sm" placeholder="Container No." name="Container_No" id="Container_No" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex1">Vassel_No.</label>
+        <input class="form-control form-control-sm" placeholder="Vassel No." name="Vassel_No" id="Vassel_No" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex2">ETA</label>
+        <input type="date" class="form-control form-control-sm" placeholder="ETA" name="ETA" id="ETA" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex3">Weight_(kg)</label>
+        <input type="number" step="0.001" name="amount" placeholder="0.000" class="form-control form-control-sm"
+          name="Weight" id="Weight" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex1">Seal_No.</label>
+        <input class="form-control form-control-sm" placeholder="Seal No." name="Seal_No" id="Seal_No" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex2">Local_Delivery</label>
+        <input class="form-control form-control-sm" placeholder="Local Delivery" name="Delivery_Location"
+          id="Delivery_Location" required style="text-transform: uppercase">
+      </div>
+      <div class="col">
+        <label for="ex3">Status</label>
+        <select class="form-control form-control-sm" name="Status_" id="Status_" required style="text-transform: uppercase">
+          <option selected>Choose...</option>
+          <option>Done</option>
+          <option>Pending</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="ex1">Return</label>
+        <select class="form-control form-control-sm" name="Return_" id="Return_" required style="text-transform: uppercase">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="ex2">Close</label>
+        <select class="form-control form-control-sm" name="Close_" id="Close_" required style="text-transform: uppercase">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+          <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+    </div>
+  </form>
+  <br>
+  <hr>
+</div> --}}
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+{{!-- Table Bootstrap --}}
+  $(document).ready(function () {
+    $('#example').DataTable();
+  });
+
+{{!-- $(function () {
+    $('#example').DataTable({
+      "pageLength": 3,
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+      });
+  }); --}}
+  
+
+</script>

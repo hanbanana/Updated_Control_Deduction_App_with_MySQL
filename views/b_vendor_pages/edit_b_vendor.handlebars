@@ -1,0 +1,118 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Vendor</h2>
+    <br>
+    <p style="font-size: 20px; font-weight: 600">Edit</p>
+    <br>
+
+    {{!-- On One Line Form- --}}
+    <div class="formDiv">
+        {{#each result1}}
+        <form data-id="{{this.id}}" class="update-form">
+            {{/each}}
+            <div class="form-group-sm row">
+                <div class="col-sm">
+                    {{!-- <label for="ex1">DIV</label>
+                    {{#each result1}}   
+                    <input class="form-control form-control-sm" placeholder="Code" name="vendor_div" id="vendor_div"
+                        value="{{this.vendor_div}}" style="width: 60px">{{/each}}
+                    <br> --}}
+
+                    <label for="ex3">DIV</label>
+                    <select class="form-control form-control-sm" name="vendor_div" id="vendor_div" required
+                        style="width: 100px">
+                        {{#each result1}}
+                        <option value="{{this.vendor_div}}">{{this.vendor_div}}</option>
+                        {{/each}}
+
+                        {{#each result2}}
+                        <option value="{{this.div_code}}">{{this.div_code}}</option>
+                        {{/each}}
+                        
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each result1}}
+
+                    <label for="ex2">VENDOR</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_vendor_code"
+                        id="vendor_vendor_code" value="{{this.vendor_vendor_code}}" style="width: 170px">
+                    <br>
+                    <label for="ex2">ENDOR NAME</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_vendor_name"
+                        id="vendor_vendor_name" value="{{this.vendor_vendor_name}}" style="width: 170px">
+                    <br>
+                    <label for="ex2">REGISTRATION NAME 1</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_registration_name_1"
+                        id="vendor_registration_name_1" value="{{this.vendor_registration_name_1}}"
+                        style="width: 170px">
+                    <br>
+                    <label for="ex2">REGISTRATION NAME 2</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_registration_name_2"
+                        id="vendor_registration_name_2" value="{{this.vendor_registration_name_2}}"
+                        style="width: 170px">
+                    <br>
+                    <label for="ex2">REGISTRATION ADDRESS</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_registration_address"
+                        id="vendor_registration_address" value="{{this.vendor_registration_address}}"
+                        style="width: 170px">
+                    <br>
+                    <label for="ex2">LIEN HOLDER</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="vendor_lien_holder"
+                        id="vendor_lien_holder" value="{{this.vendor_lien_holder}}" style="width: 170px">
+                    <br>
+                    {{/each}}
+                    {{!-- <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="text-transform: uppercase; width: 100px">
+          <br> --}}
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+
+                </div>
+
+            </div>
+        </form>
+        <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
+        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+        <br>
+    </div>
+
+</div>
+<br>
+
+</div>
+
+<script type="text/javascript">
+
+    $(".update-form").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+
+        var updatedPlan = {
+            vendor_div: $("#vendor_div").val().trim(),
+            vendor_vendor_code: $("#vendor_vendor_code").val().trim(),
+            vendor_vendor_name: $("#vendor_vendor_name").val().trim(),
+            vendor_registration_name_1: $("#vendor_registration_name_1").val().trim(),
+            vendor_registration_name_2: $("#vendor_registration_name_2").val().trim(),
+            vendor_registration_address: $("#vendor_registration_address").val().trim(),
+            vendor_lien_holder: $("#vendor_lien_holder").val().trim()
+        };
+
+        var id = $(this).data("id");
+        // Send the PUT request.
+        $.ajax("/b_vendor_list/" + id, {
+            type: "PUT",
+            data: updatedPlan
+        }).then(
+            function () {
+                console.log("updated!");
+                // Reload the page to get the updated list
+                location.assign("/master_vendor");
+            }
+        );
+    });
+
+</script>
