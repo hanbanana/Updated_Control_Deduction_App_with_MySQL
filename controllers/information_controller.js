@@ -242,6 +242,17 @@ router.get("/information_pages/create_information_owner", function (req, res) {
     });
 });
 
+router.get("/information_pages/create_information_truck", function (req, res) {
+    connection.query("SELECT * FROM information_truck_db;", function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+        else if (req.session.user === "adminSession") {
+            res.render("information_pages/create_information_truck", { b_division: data });
+        };
+    });
+});
+
 router.get("/createTruck", function (req, res) {
     connection.query("SELECT * FROM b_division;", function (err, data) {
         if (err) {
@@ -279,6 +290,18 @@ router.get("/information_pages/delete_information_owner/:id", function (req, res
     });
 });
 
+router.get("/information_pages/delete_information_truck/:id", function (req, res) {
+    connection.query("SELECT * FROM information_truck_db where id = ?", [req.params.id], function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+        else if (req.session.user === "adminSession") {
+            console.log(data);
+            res.render("information_pages/delete_information_truck", data[0]);
+        };
+    });
+});
+
 // Create a new list
 router.post("/information_owner_list", function (req, res) {
     connection.query("INSERT INTO information_owner_db (information_owner_no, information_owner_name, information_owner_address, information_owner_tel) VALUES (?, ?, ?, ?)",
@@ -293,10 +316,33 @@ router.post("/information_owner_list", function (req, res) {
         });
 });
 
+router.post("/information_truck_list", function (req, res) {
+    connection.query("INSERT INTO information_truck_db (information_truck_no, information_truck_us_plate_no, information_truck_mx_plate, information_truck_maker, information_truck_model, information_truck_year, information_truck_color, information_truck_owner_no, information_truck_owner_name, information_truck_driver_id, information_truck_driver_name, information_truck_registration_name, information_truck_rfid_tag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [req.body.information_truck_no, req.body.information_truck_us_plate_no, req.body.information_truck_mx_plate, req.body.information_truck_maker, req.body.information_truck_model, req.body.information_truck_year, req.body.information_truck_color, req.body.information_truck_owner_no, req.body.information_truck_owner_name, req.body.information_truck_driver_id, req.body.information_truck_driver_name, req.body.information_truck_registration_name, req.body.information_truck_rfid_tag], function (err, result) {
+            if (err) {
+                return res.status(500).end();
+            }
+
+            // Send back the ID of the new todo
+            res.json({ id: result.insertId });
+            console.log({ id: result.insertId });
+        });
+});
+
 
 // Retrieve all list
 router.get("/information_owner_list", function (req, res) {
     connection.query("SELECT * FROM information_owner_db;", function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+
+        res.json(data);
+    });
+});
+
+router.get("/information_truck_list", function (req, res) {
+    connection.query("SELECT * FROM information_truck_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -326,6 +372,21 @@ router.put("/information_owner_list/:id", function (req, res) {
 // Delete a list
 router.delete("/information_owner_list/:id", function (req, res) {
     connection.query("DELETE FROM information_owner_db WHERE id = ?", [req.params.id], function (err, result) {
+        if (err) {
+            // If an error occurred, send a generic server failure
+            return res.status(500).end();
+        }
+        else if (result.affectedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        }
+        res.status(200).end();
+
+    });
+});
+
+router.delete("/information_truck_list/:id", function (req, res) {
+    connection.query("DELETE FROM information_truck_db WHERE id = ?", [req.params.id], function (err, result) {
         if (err) {
             // If an error occurred, send a generic server failure
             return res.status(500).end();

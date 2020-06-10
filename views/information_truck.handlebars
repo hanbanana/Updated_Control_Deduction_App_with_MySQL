@@ -4,7 +4,7 @@
     <h2>Truck</h2>
     {{!-- <label class="heading">Owner History</label> --}}
     <br>
-    <a href="/b_division_pages/create_b_division" style="font-size: 20px">Create</a>
+    <a href="/information_pages/create_information_truck" style="font-size: 20px">Create</a>
     <br><br>
 
     <div class="form-group" style="width: 400px">
@@ -37,20 +37,20 @@
                         {{#each b_division}}
                         <tr>
                             {{!-- <td>{{this.id}}</td> --}}
-                            <td style="width:50px">{{this.information_owner_no}}</td>
-                            <td style="width:50px">{{this.information_owner_us_plate_no}}</td>
-                            <td style="width:100px">{{this.information_owner_ms_plate}}</td>
-                            <td style="width:50px">{{this.information_owner_maker}}</td>
-                            <td style="width:100px">{{this.information_owner_model}}</td>
-                            <td style="width:50px">{{this.information_owner_year}}</td>
-                            <td style="width:100px">{{this.information_owner_color}}</td>
-                            <td style="width:50px">{{this.information_owner_owner_no}}</td>
-                            <td style="width:100px">{{this.information_owner_owner_name}}</td>
-                            <td style="width:50px">{{this.information_owner_driver_id}}</td>
-                            <td style="width:100px">{{this.information_owner_driver_name}}</td>
-                            <td style="width:50px">{{this.information_owner_registration_name}}</td>
-                            <td style="width:100px">{{this.information_owner_rfid_tag}}</td>
-                            <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a>
+                            <td style="width:50px">{{this.information_truck_no}}</td>
+                            <td style="width:50px">{{this.information_truck_us_plate_no}}</td>
+                            <td style="width:100px">{{this.information_truck_mx_plate}}</td>
+                            <td style="width:50px">{{this.information_truck_maker}}</td>
+                            <td style="width:100px">{{this.information_truck_model}}</td>
+                            <td style="width:50px">{{this.information_truck_year}}</td>
+                            <td style="width:100px">{{this.information_truck_color}}</td>
+                            <td style="width:50px">{{this.information_truck_owner_no}}</td>
+                            <td style="width:100px">{{this.information_truck_owner_name}}</td>
+                            <td style="width:50px">{{this.information_truck_driver_id}}</td>
+                            <td style="width:100px">{{this.information_truck_driver_name}}</td>
+                            <td style="width:50px">{{this.information_truck_registration_name}}</td>
+                            <td style="width:100px">{{this.information_truck_rfid_tag}}</td>
+                            <td style="width:50px"><a href="/information_pages/delete_information_truck/{{this.id}}">Delete</a>
                             </td>
                             <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>
                         </tr>
