@@ -1,18 +1,18 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
 
-    <br>
-    <h2>Driver</h2>
+  <br>
+     <h2>Driver</h2>
     {{!-- <label class="heading">Owner History</label> --}}
     <br>
-    <a href="/b_division_pages/create_b_division" style="font-size: 20px">Create</a>
-    <br><br>
+    <a href="/information_pages/create_information_driver" style="font-size: 20px">Create</a>
+  <br><br>
 
-    <div class="form-group" style="width: 400px">
-        <fieldset>
-            <form action="" class="form-group">
+  <div class="form-group" style="width: 1000px">
+    <fieldset>
+      <form action="" class="form-group">
 
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
                         <tr>
                             {{!-- <th scope="col" data-sortable="true">ID#</th> --}}
                             <th scope="col">NO</th>
@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+         <tbody>
                         {{#each b_division}}
                         <tr>
                             {{!-- <td>{{this.id}}</td> --}}
@@ -36,24 +36,24 @@
                             <td style="width:100px">{{this.information_driver_rfc}}</td>
                             <td style="width:50px">{{this.information_driver_ife}}</td>
                             <td style="width:100px">{{this.information_driver_address}}</td>
-                            <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a>
+                            <td style="width:50px"><a href="/information_pages/delete_information_driver/{{this.id}}">Delete</a>
                             </td>
-                            <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>
+                            <td style="width:50px"><a href="/information_pages/edit_information_driver/{{this.id}}">Edit</a></td>
                         </tr>
                         {{/each}}
                     </tbody>
 
-                </table>
+        </table>
 
-            </form>
-            <!--END OF FORM ^^-->
-        </fieldset>
+      </form>
+      <!--END OF FORM ^^-->
+    </fieldset>
 
-        <hr />
-    </div>
+    <hr />
+  </div>
 
 
-    {{!-- <div class="formDiv">
+  {{!-- <div class="formDiv">
   <h4>Create New</h4>
   <form id="createplan">
     <div class="form-group-sm row">
@@ -128,15 +128,10 @@
 
 
 
-
 <script type="text/javascript">
-
-    { { !--Table Bootstrap-- } }
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-
-
-
-
+{{!-- Table Bootstrap --}}
+  $(document).ready(function () {
+    $('#example').DataTable();
+  });
+  
 </script>

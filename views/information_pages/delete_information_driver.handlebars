@@ -1,0 +1,83 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Onwer</h2>
+    <br>
+    <p style="font-size: 20px; font-weight: 600">Delete</p>
+    <br>
+
+    {{!-- On One Line Form- --}}
+    <div class="formDiv">
+        <form data-id="{{this.id}}" class="update-form">
+            <div class="form-group-sm row">
+                <div class="col-sm">
+                    <label for="ex1">NO</label>
+                    <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO"
+                        value="{{this.information_owner_no}}" style="width: 60px" disabled>
+                    <br>
+                    <label for="ex2">Name</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="Name" id="div_name"
+                        value="{{this.information_owner_name}}" style="width: 170px" disabled>
+                    <br>
+                    <label for="ex1">License ID</label>
+                    <input class="form-control form-control-sm" placeholder="licenseId" name="licenseId" id="licenseId"
+                        value="{{this.information_owner_address}}" style="width: 60px" disabled>
+                    <br>
+                    <label for="ex2">RFC</label>
+                    <input class="form-control form-control-sm" placeholder="RFC" name="RFC" id="RFC"
+                        value="{{this.information_owner_tel}}" style="width: 170px" disabled>
+                    <br>
+                    <label for="ex2">IFE</label>
+                    <input class="form-control form-control-sm" placeholder="IFE" name="IFE" id="IFE"
+                        value="{{this.information_owner_tel}}" style="width: 170px" disabled>
+                    <br>
+                    <label for="ex2">Address</label>
+                    <input class="form-control form-control-sm" placeholder="Address" name="Address" id="Address"
+                        value="{{this.information_owner_tel}}" style="width: 170px" disabled>
+                    <br>
+
+                    {{!-- <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="text-transform: uppercase; width: 100px">
+          <br> --}}
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Delete</button>
+                </div>
+
+            </div>
+        </form>
+        <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
+        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+        <br>
+    </div>
+
+</div>
+<br>
+
+
+<script type="text/javascript">
+
+    $(".update-form").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+
+        var id = $(this).data("id");
+        // Send the PUT request.
+        $.ajax("/information_driver_list/" + id, {
+            type: "DELETE",
+
+        }).then(
+            function () {
+                console.log("updated!");
+                // Reload the page to get the updated list
+                location.assign("/information_driver");
+            }
+        );
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+
+</script>

@@ -12,19 +12,27 @@
                 <div class="col-sm">
                     <label for="ex1">NO</label>
                     <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO" maxlength="45"
-                        value="{{this.information_owner_no}}" style="width: 60px">
+                        value="{{this.information_driver_no}}" style="width: 60px">
                     <br>
                     <label for="ex2">Name</label>
                     <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name"
-                        maxlength="45" value="{{this.information_owner_name}}" style="width: 170px">
+                        maxlength="45" value="{{this.information_driver_name}}" style="width: 170px">
                     <br>
-                    <label for="ex1">Address</label>
-                    <input class="form-control form-control-sm" placeholder="Address" name="Address" id="Address"
-                        maxlength="45" value="{{this.information_owner_address}}" style="width: 60px">
+                    <label for="ex1">License ID</label>
+                    <input class="form-control form-control-sm" placeholder="licenseId" name="licenseId" id="licenseId"
+                        maxlength="45" value="{{this.information_driver_license_id}}" style="width: 60px">
                     <br>
-                    <label for="ex2">Tel</label>
-                    <input class="form-control form-control-sm" placeholder="Tel" name="Tel" id="Tel" maxlength="45"
-                        value="{{this.information_owner_tel}}" style="width: 170px">
+                    <label for="ex2">RFC</label>
+                    <input class="form-control form-control-sm" placeholder="RFC" name="RFC" id="RFC" maxlength="45"
+                        value="{{this.information_driver_rfc}}" style="width: 170px">
+                    <br>
+                                        <label for="ex2">IFE</label>
+                    <input class="form-control form-control-sm" placeholder="IFE" name="IFE" id="IFE" maxlength="45"
+                        value="{{this.information_driver_ife}}" style="width: 170px">
+                    <br>
+                                        <label for="ex2">Address</label>
+                    <input class="form-control form-control-sm" placeholder="Address" name="Address" id="Address" maxlength="45"
+                        value="{{this.information_driver_address}}" style="width: 170px">
                     <br>
                     {{!-- <label for="ex2">Name</label>
           <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
@@ -55,22 +63,24 @@
 
 
         var updatedPlan = {
-            information_owner_no: $("#NO").val().trim(),
-            information_owner_name: $("#Name").val().trim(),
-            information_owner_address: $("#Address").val().trim(),
-            information_owner_tel: $("#Tel").val().trim()
+            information_driver_no: $("#NO").val().trim(),
+            information_driver_name: $("#Name").val().trim(),
+            information_driver_license_id: $("#licenseId").val().trim(),
+            information_driver_rfc: $("#RFC").val().trim(),
+            information_driver_ife: $("#IFE").val().trim(),
+            information_driver_address: $("#Address").val().trim(),
         };
 
         var id = $(this).data("id");
         // Send the PUT request.
-        $.ajax("/information_owner_list/" + id, {
+        $.ajax("/information_driver_list/" + id, {
             type: "PUT",
             data: updatedPlan
         }).then(
             function () {
                 console.log("updated!");
                 // Reload the page to get the updated list
-                location.assign("/information_owner");
+                location.assign("/information_driver");
             }
         );
     });

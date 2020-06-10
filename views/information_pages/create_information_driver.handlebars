@@ -1,6 +1,6 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
     <br>
-    <h2>Truck</h2>
+    <h2>Driver</h2>
     <br>
     <h4>Create</h4>
     <br>
@@ -101,60 +101,29 @@
         <form id="createplan">
             <div class="form-group-sm row">
                 <div class="col-sm">
-
                     <label for="ex1">NO</label>
                     <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO" maxlength="45"
-                        required style="width: 200px">
+                        required style="width: 60px">
                     <br>
-                    <label for="ex2">US Plate No</label>
-                    <input class="form-control form-control-sm" placeholder="usPlate" name="usPlate" id="usPlate"
-                        maxlength="45" required style="width: 200px">
+                    <label for="ex2">Name</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45"
+                        required style="width: 170px">
                     <br>
-                    <label for="ex1">MX Plate</label>
-                    <input class="form-control form-control-sm" placeholder="mxPlate" name="mxPlate" id="mxPlate"
-                        maxlength="45" required style="width: 200px">
+                    <label for="ex1">License ID</label>
+                    <input class="form-control form-control-sm" placeholder="licenseId" name="licenseId" id="licenseId"
+                        maxlength="45" required style="width: 60px">
                     <br>
-                    <label for="ex2">Maker</label>
-                    <input class="form-control form-control-sm" placeholder="Maker" name="Maker" id="Maker"
-                        maxlength="45" required style="width: 200px">
+                    <label for="ex2">RFC</label>
+                    <input class="form-control form-control-sm" placeholder="RFC" name="RFC" id="RFC" maxlength="45"
+                        required style="width: 170px">
                     <br>
-                    <label for="ex1">Model</label>
-                    <input class="form-control form-control-sm" placeholder="Model" name="Model" id="Model"
-                        maxlength="45" required style="width: 200px">
+                    <label for="ex2">IFE</label>
+                    <input class="form-control form-control-sm" placeholder="IFE" name="IFE" id="IFE" maxlength="45"
+                        required style="width: 170px">
                     <br>
-                    <label for="ex2">Year</label>
-                    <input class="form-control form-control-sm" placeholder="Year" name="Year" id="Year" maxlength="45"
-                        required style="width: 200px">
-                    <br>
-                    <label for="ex1">Color</label>
-                    <input class="form-control form-control-sm" placeholder="Color" name="Color" id="Color"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                </div>
-                <div class="col-sm">
-                    <label for="ex2">Owner No</label>
-                    <input class="form-control form-control-sm" placeholder="ownerNo" name="ownerNo" id="ownerNo"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">Owner Name</label>
-                    <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex2">Driver ID</label>
-                    <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">Driver Name</label>
-                    <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
-                        id="driverName" maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex2">Registration Name</label>
-                    <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName"
-                        id="registrationName" maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">RFID Tag</label>
-                    <input class="form-control form-control-sm" placeholder="rfidTag" name="rfidTag" id="rfidTag"
-                        maxlength="45" required style="width: 200px">
+                    <label for="ex2">Address</label>
+                    <input class="form-control form-control-sm" placeholder="Address" name="Address" id="Address"
+                        maxlength="45" required style="width: 170px">
                     <br>
 
 
@@ -174,14 +143,13 @@
           <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
             style="text-transform: uppercase; width: 100px">
           <br> --}}
-                    <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
-                        onclick="window.history.back()">Cancel</button>
                     <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
                 </div>
 
             </div>
         </form>
-
+        <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
         {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
         <br>
@@ -199,30 +167,23 @@
         event.preventDefault();
 
         var newPlan = {
-            information_truck_no: $("#NO").val().trim(),
-            information_truck_us_plate_no: $("#usPlate").val().trim(),
-            information_truck_mx_plate: $("#mxPlate").val().trim(),
-            information_truck_maker: $("#Maker").val().trim(),
-            information_truck_model: $("#Model").val().trim(),
-            information_truck_year: $("#Year").val().trim(),
-            information_truck_color: $("#Color").val().trim(),
-            information_truck_owner_no: $("#ownerNo").val().trim(),
-            information_truck_owner_name: $("#ownerName").val().trim(),
-            information_truck_driver_id: $("#driverId").val().trim(),
-            information_truck_driver_name: $("#driverName").val().trim(),
-            information_truck_registration_name: $("#registrationName").val().trim(),
-            information_truck_rfid_tag: $("#rfidTag").val().trim(),
+            information_driver_no: $("#NO").val().trim(),
+            information_driver_name: $("#Name").val().trim(),
+            information_driver_license_id: $("#licenseId").val().trim(),
+            information_driver_rfc: $("#RFC").val().trim(),
+            information_driver_ife: $("#IFE").val().trim(),
+            information_driver_address: $("#Address").val().trim(),
         };
 
         // Send the POST request.
-        $.ajax("/information_truck_list", {
+        $.ajax("/information_driver_list", {
             type: "POST",
             data: newPlan
         }).then(
             function () {
                 console.log("created new plan");
                 // Reload the page to get the updated list
-                location.assign("/information_truck");
+                location.assign("/information_driver");
             }
         );
     });
