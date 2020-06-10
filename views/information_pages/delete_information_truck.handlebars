@@ -1,6 +1,6 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
     <br>
-    <h2>Onwer</h2>
+    <h2>Truck</h2>
     <br>
     <p style="font-size: 20px; font-weight: 600">Delete</p>
     <br>
@@ -12,72 +12,77 @@
                 <div class="col-sm">
                     <label for="ex1">NO</label>
                     <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO"
-                        value="{{this.information_truck_no}}" style="width: 60px" disabled>
+                        value="{{this.information_truck_no}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">US Plate No</label>
                     <input class="form-control form-control-sm" placeholder="usPlate" name="usPlate" id="usPlate"
-                        value="{{this.information_truck_us_plate_no}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_us_plate_no}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex1">MX Plate</label>
                     <input class="form-control form-control-sm" placeholder="mxPlate" name="mxPlate" id="mxPlate"
-                        value="{{this.information_truck_mx_plate}}" style="width: 60px" disabled>
+                        value="{{this.information_truck_mx_plate}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Maker</label>
                     <input class="form-control form-control-sm" placeholder="Maker" name="Maker" id="Maker"
-                        value="{{this.information_truck_maker}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_maker}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Model</label>
                     <input class="form-control form-control-sm" placeholder="Model" name="Model" id="Model"
-                        value="{{this.information_truck_model}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_model}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Year</label>
                     <input class="form-control form-control-sm" placeholder="Year" name="Year" id="Year"
-                        value="{{this.information_truck_year}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_year}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Color</label>
                     <input class="form-control form-control-sm" placeholder="Color" name="Color" id="Color"
-                        value="{{this.information_truck_color}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_color}}" style="width: 200px" disabled>
                     <br>
+                </div>
+                <div class="col-sm">
                     <label for="ex2">Owner No</label>
                     <input class="form-control form-control-sm" placeholder="ownerNo" name="ownerNo" id="ownerNo"
-                        value="{{this.information_truck_owner_no}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_owner_no}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Owner Name</label>
                     <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
-                        value="{{this.information_truck_owner_name}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_owner_name}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Driver ID</label>
                     <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
-                        value="{{this.information_truck_driver_id}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_driver_id}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Driver Name</label>
-                    <input class="form-control form-control-sm" placeholder="driverName" name="driverName" id="driverName"
-                        value="{{this.information_truck_driver_name}}" style="width: 170px" disabled>
+                    <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
+                        id="driverName" value="{{this.information_truck_driver_name}}" style="width: 200px" disabled>
                     <br>
                     <label for="ex2">Registration Name</label>
-                    <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName" id="registrationName"
-                        value="{{this.information_truck_registration_name}}" style="width: 170px" disabled>
+                    <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName"
+                        id="registrationName" value="{{this.information_truck_registration_name}}" style="width: 200px"
+                        disabled>
                     <br>
                     <label for="ex2">RFID Tag</label>
                     <input class="form-control form-control-sm" placeholder="rfidTag" name="rfidTag" id="rfidTag"
-                        value="{{this.information_truck_rfid_tag}}" style="width: 170px" disabled>
+                        value="{{this.information_truck_rfid_tag}}" style="width: 200px" disabled>
                     <br>
 
-                    {{!-- <label for="ex2">Name</label>
-          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
-            style="text-transform: uppercase; width: 100px">
-          <br> --}}
-                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Delete</button>
+                  
                 </div>
+            </div>
+            <div class="form-group-sm row">
+                <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Delete</button>
+
 
             </div>
         </form>
+        <div class="form-group-sm row">
         <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
             onclick="window.history.back()">Cancel</button>
         {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
         <br>
     </div>
+</div>
 
 </div>
 <br>
@@ -104,8 +109,8 @@
         );
     });
 
-    function goBack() {
+    {{!-- function goBack() {
         window.history.back();
-    }
+    } --}}
 
 </script>

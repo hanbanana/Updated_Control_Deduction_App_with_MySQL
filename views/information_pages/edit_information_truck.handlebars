@@ -1,8 +1,8 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
     <br>
-    <h2>Division</h2>
+    <h2>Truck</h2>
     <br>
-    <p style="font-size: 20px; font-weight: 600">Edit</p>
+    <h4>Edit</h4>
     <br>
 
     {{!-- On One Line Form- --}}
@@ -12,74 +12,79 @@
                 <div class="col-sm">
                     <label for="ex1">NO</label>
                     <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO" maxlength="45"
-                        value="{{this.information_truck_no}}" style="width: 60px">
+                        value="{{this.information_truck_no}}" style="width: 200px">
                     <br>
                     <label for="ex2">US Plate No</label>
                     <input class="form-control form-control-sm" placeholder="usPlate" name="usPlate" id="usPlate"
-                        maxlength="45" value="{{this.information_truck_us_plate_no}}" style="width: 170px">
+                        maxlength="45" value="{{this.information_truck_us_plate_no}}" style="width: 200px">
                     <br>
                     <label for="ex1">MX Plate</label>
                     <input class="form-control form-control-sm" placeholder="mxPlate" name="mxPlate" id="mxPlate"
-                        maxlength="45" value="{{this.information_truck_mx_plate}}" style="width: 60px">
+                        maxlength="45" value="{{this.information_truck_mx_plate}}" style="width: 200px">
                     <br>
                     <label for="ex2">Maker</label>
                     <input class="form-control form-control-sm" placeholder="Maker" name="Maker" id="Maker"
-                        maxlength="45" value="{{this.information_truck_maker}}" style="width: 170px">
+                        maxlength="45" value="{{this.information_truck_maker}}" style="width: 200px">
                     <br>
                     <label for="ex1">Model</label>
                     <input class="form-control form-control-sm" placeholder="Model" name="Model" id="Model"
-                        maxlength="45" value="{{this.information_truck_model}}" style="width: 60px">
+                        maxlength="45" value="{{this.information_truck_model}}" style="width: 200px">
                     <br>
                     <label for="ex2">Year</label>
                     <input class="form-control form-control-sm" placeholder="Year" name="Year" id="Year" maxlength="45"
-                        value="{{this.information_truck_year}}" style="width: 170px">
+                        value="{{this.information_truck_year}}" style="width: 200px">
                     <br>
                     <label for="ex1">Color</label>
                     <input class="form-control form-control-sm" placeholder="Color" name="Color" id="Color"
-                        maxlength="45" value="{{this.information_truck_color}}" style="width: 60px">
+                        maxlength="45" value="{{this.information_truck_color}}" style="width: 200px">
                     <br>
+                </div>
+                <div class="col-sm">
                     <label for="ex2">Owner No</label>
                     <input class="form-control form-control-sm" placeholder="ownerNo" name="ownerNo" id="ownerNo"
-                        maxlength="45" value="{{this.information_truck_owner_no}}" style="width: 170px">
+                        maxlength="45" value="{{this.information_truck_owner_no}}" style="width: 200px">
                     <br>
                     <label for="ex1">Owner Name</label>
                     <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
-                        maxlength="45" value="{{this.information_truck_owner_name}}" style="width: 60px">
+                        maxlength="45" value="{{this.information_truck_owner_name}}" style="width: 200px">
                     <br>
                     <label for="ex2">Driver ID</label>
                     <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
-                        maxlength="45" value="{{this.information_truck_driver_id}}" style="width: 170px">
+                        maxlength="45" value="{{this.information_truck_driver_id}}" style="width: 200px">
                     <br>
                     <label for="ex1">Driver Name</label>
                     <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
                         id="driverName" maxlength="45" value="{{this.information_truck_driver_name}}"
-                        style="width: 60px">
+                        style="width: 200px">
                     <br>
                     <label for="ex2">Registration Name</label>
                     <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName"
                         id="registrationName" maxlength="45" value="{{this.information_truck_registration_name}}"
-                        style="width: 170px">
+                        style="width: 200px">
                     <br>
                     <label for="ex1">RFID Tag</label>
                     <input class="form-control form-control-sm" placeholder="rfidTag" name="rfidTag" id="rfidTag"
-                        maxlength="45" value="{{this.information_truck_rfid_tag}}" style="width: 60px">
+                        maxlength="45" value="{{this.information_truck_rfid_tag}}" style="width: 200px">
                     <br>
 
-                    {{!-- <label for="ex2">Name</label>
-          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
-            style="text-transform: uppercase; width: 100px">
-          <br> --}}
-                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+          
                 </div>
+            </div>
+                        <div class="form-group-sm row">
+                <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+
 
             </div>
-        </form>
+    </div>
+    </form>
+    <div class="form-group-sm row">
         <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
             onclick="window.history.back()">Cancel</button>
         {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
         <br>
     </div>
+</div>
 
 </div>
 <br>
