@@ -243,13 +243,15 @@ router.get("/information_pages/create_information_owner", function (req, res) {
 });
 
 router.get("/information_pages/create_information_truck", function (req, res) {
-    connection.query("SELECT * FROM information_truck_db;", function (err, data) {
-        if (err) {
-            return res.status(500).end();
-        }
-        else if (req.session.user === "adminSession") {
-            res.render("information_pages/create_information_truck", { b_division: data });
-        };
+    connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+        connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+            if (err) {
+                return res.status(500).end();
+            }
+            else if (req.session.user === "adminSession") {
+                res.render("information_pages/create_information_truck", { information_owner: ownerData, information_driver: driverData });
+            };
+        });
     });
 });
 

@@ -132,22 +132,62 @@
                     <br>
                 </div>
                 <div class="col-sm">
-                    <label for="ex2">Owner No</label>
+                    <label for="ex3">Owner No</label>
+                    <select class="form-control form-control-sm" name="ownerNo" id="ownerNo" required
+                        style="width: 100px">
+                        <option value="" disabled selected>Choose...</option>
+                        {{#each information_owner}}
+                        <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{!-- <label for="ex2">Owner No</label>
                     <input class="form-control form-control-sm" placeholder="ownerNo" name="ownerNo" id="ownerNo"
                         maxlength="45" required style="width: 200px">
-                    <br>
+                    <br> --}}
                     <label for="ex1">Owner Name</label>
+                    <select class="form-control form-control-sm" name="ownerName" id="ownerName" required
+                        style="width: 100px">
+                        <option value="" disabled selected>Choose...</option>
+                        {{#each information_owner}}
+                        <option value="{{this.information_owner_name}}">{{this.information_owner_name}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{!-- <label for="ex1">Owner Name</label>
                     <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
                         maxlength="45" required style="width: 200px">
+                    <br> --}}
+                    <label for="ex3">Driver ID</label>
+                    <select class="form-control form-control-sm" name="driverId" id="driverId" required
+                        style="width: 100px">
+                        <option value="" disabled selected>Choose...</option>
+                        {{#each information_driver}}
+                        <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
                     <br>
-                    <label for="ex2">Driver ID</label>
+                    {{!-- <label for="ex2">Driver ID</label>
                     <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
                         maxlength="45" required style="width: 200px">
+                    <br> --}}
+                    <label for="ex3">Driver Name</label>
+                    <select class="form-control form-control-sm" name="driverName" id="driverName" required
+                        style="width: 100px">
+                        <option value="" disabled selected>Choose...</option>
+                        {{#each information_driver}}
+                        <option value="{{this.information_driver_name}}">{{this.information_driver_name}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
                     <br>
-                    <label for="ex1">Driver Name</label>
+                    {{!-- <label for="ex1">Driver Name</label>
                     <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
                         id="driverName" maxlength="200px" required style="width: 200px">
-                    <br>
+                    <br> --}}
                     <label for="ex2">Registration Name</label>
                     <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName"
                         id="registrationName" maxlength="200px" required style="width: 200px">
