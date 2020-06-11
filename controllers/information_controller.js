@@ -143,7 +143,7 @@ router.get("/information_driver", authAdmin, function (req, res) {
 });
 
 router.get("/input_truck_payment", authAdmin, function (req, res) {
-    connection.query("SELECT * FROM b_division;", function (err, data) {
+    connection.query("SELECT * FROM input_truck_payment_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -266,6 +266,21 @@ router.get("/information_pages/create_information_driver", function (req, res) {
     });
 });
 
+router.get("/input_pages/create_input_truck_payment", function (req, res) {
+    connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+        connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+            connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+                if (err) {
+                    return res.status(500).end();
+                }
+                else if (req.session.user === "adminSession") {
+                    res.render("input_pages/create_input_truck_payment", { information_owner: ownerData, information_driver: driverData, input_truck: truckData });
+                };
+            });
+        });
+    });
+});
+
 router.get("/createTruck", function (req, res) {
     connection.query("SELECT * FROM b_division;", function (err, data) {
         if (err) {
@@ -314,6 +329,18 @@ router.get("/information_pages/edit_information_driver/:id", function (req, res)
     });
 });
 
+router.get("/input_pages/edit_input_truck_payment/:id", function (req, res) {
+    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+        else if (req.session.user === "adminSession") {
+            console.log(data);
+            res.render("input_pages/edit_input_truck_payment", data[0]);
+        };
+    });
+});
+
 // Use Handlebars to render the delete_b_division.handlebars page.
 router.get("/information_pages/delete_information_owner/:id", function (req, res) {
     connection.query("SELECT * FROM information_owner_db where id = ?", [req.params.id], function (err, data) {
@@ -347,6 +374,18 @@ router.get("/information_pages/delete_information_driver/:id", function (req, re
         else if (req.session.user === "adminSession") {
             console.log(data);
             res.render("information_pages/delete_information_driver", data[0]);
+        };
+    });
+});
+
+router.get("/input_pages/delete_input_truck_payment/:id", function (req, res) {
+    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+        else if (req.session.user === "adminSession") {
+            console.log(data);
+            res.render("input_pages/delete_input_truck_payment", data[0]);
         };
     });
 });
@@ -391,6 +430,19 @@ router.post("/information_driver_list", function (req, res) {
         });
 });
 
+router.post("/input_truck_payment_list", function (req, res) {
+    connection.query("INSERT INTO input_truck_payment_db (input_truck_payment_truck_no, input_truck_payment_owner_id, input_truck_payment_owner_name, input_truck_payment_driver_id, input_truck_payment_driver_name, input_truck_payment_truck_total_amount, input_truck_payment_down_payment, input_truck_payment_sale_date, input_truck_payment_pay_month, input_truck_payment_paid_amount, input_truck_payment_balance_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [req.body.input_truck_payment_truck_no, req.body.input_truck_payment_owner_id, req.body.input_truck_payment_owner_name, req.body.input_truck_payment_driver_id, req.body.input_truck_payment_driver_name, req.body.input_truck_payment_truck_total_amount, req.body.input_truck_payment_down_payment, req.body.input_truck_payment_sale_date, req.body.input_truck_payment_pay_month, req.body.input_truck_payment_paid_amount, req.body.input_truck_payment_balance_amount], function (err, result) {
+            if (err) {
+                return res.status(500).end();
+            }
+
+            // Send back the ID of the new todo
+            res.json({ id: result.insertId });
+            console.log({ id: result.insertId });
+        });
+});
+
 
 // Retrieve all list
 router.get("/information_owner_list", function (req, res) {
@@ -415,6 +467,16 @@ router.get("/information_truck_list", function (req, res) {
 
 router.get("/information_driver_list", function (req, res) {
     connection.query("SELECT * FROM information_driver_db;", function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+
+        res.json(data);
+    });
+});
+
+router.get("/input_truck_payment_list", function (req, res) {
+    connection.query("SELECT * FROM input_truck_payment_db;", function (err, data) {
         if (err) {
             return res.status(500).end();
         }
@@ -508,6 +570,21 @@ router.delete("/information_truck_list/:id", function (req, res) {
 
 router.delete("/information_driver_list/:id", function (req, res) {
     connection.query("DELETE FROM information_driver_db WHERE id = ?", [req.params.id], function (err, result) {
+        if (err) {
+            // If an error occurred, send a generic server failure
+            return res.status(500).end();
+        }
+        else if (result.affectedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        }
+        res.status(200).end();
+
+    });
+});
+
+router.delete("/input_truck_payment_list/:id", function (req, res) {
+    connection.query("DELETE FROM input_truck_payment_db WHERE id = ?", [req.params.id], function (err, result) {
         if (err) {
             // If an error occurred, send a generic server failure
             return res.status(500).end();
