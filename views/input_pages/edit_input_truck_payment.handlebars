@@ -1,92 +1,110 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
     <br>
-    <h2>Truck</h2>
+    <h2>Truck Payment</h2>
     <br>
     <h4>Edit</h4>
     <br>
 
     {{!-- On One Line Form- --}}
     <div class="formDiv">
+        {{#each truckPaymentData}}
         <form data-id="{{this.id}}" class="update-form">
+            {{/each}}
             <div class="form-group-sm row">
                 <div class="col-sm">
+                    {{#each truckPaymentData}}
                     <label for="ex3">Truck NO</label>
                     <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
                         style="width: 100px">
-                        <option value="">{{this.input_truck_payment_truck_no}}</option>
-                        {{#each information_truck}}
+                        <option value="{{this.input_truck_payment_truck_no}}" selected>{{this.input_truck_payment_truck_no}}</option>
+                        {{/each}}
+                        {{#each truckData}}
                         <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
                         {{/each}}
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
+                    {{#each truckPaymentData}}
                     <label for="ex3">Owner No</label>
                     <select class="form-control form-control-sm" name="ownerId" id="ownerId" required
                         style="width: 100px">
-                        <option value="">{{this.input_truck_payment_owner_no}}</option>
-                        {{#each information_owner}}
+                        <option value="{{this.input_truck_payment_owner_id}}" selected>{{this.input_truck_payment_owner_id}}</option>
+                        {{/each}}
+                        {{#each ownerData}}
                         <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
                         {{/each}}
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
+                    {{#each truckPaymentData}}
                     <label for="ex3">Owner Name</label>
                     <select class="form-control form-control-sm" name="ownerName" id="ownerName" required
                         style="width: 100px">
-                        <option value="">{{this.input_truck_payment_owner_name}}</option>
-                        {{#each information_owner}}
+                        <option value="{{this.input_truck_payment_owner_name}}" selected>{{this.input_truck_payment_owner_name}}</option>
+                        {{/each}}
+                        {{#each ownerData}}
                         <option value="{{this.information_owner_name}}">{{this.information_owner_name}}</option>
                         {{/each}}
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
+                    {{#each truckPaymentData}}
                     <label for="ex3">Driver No</label>
                     <select class="form-control form-control-sm" name="driverId" id="driverId" required
                         style="width: 100px">
-                        <option value="">{{this.input_truck_payment_driver_no}}</option>
-                        {{#each information_driver}}
+                        <option value="{{this.input_truck_payment_driver_id}}" selected>{{this.input_truck_payment_driver_id}}</option>
+                        {{/each}}
+                        {{#each driverData}}
                         <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
                         {{/each}}
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
+                    {{#each truckPaymentData}}
                     <label for="ex3">Driver Name</label>
                     <select class="form-control form-control-sm" name="driverName" id="driverName" required
                         style="width: 100px">
-                        <option value="">{{this.input_truck_payment_driver_name}}</option>
-                        {{#each information_driver}}
+                        <option value="{{this.input_truck_payment_driver_name}}" selected>{{this.input_truck_payment_driver_name}}</option>
+                        {{/each}}
+                        {{#each driverData}}
                         <option value="{{this.information_driver_name}}">{{this.information_driver_name}}</option>
                         {{/each}}
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
+
                 </div>
                 <div class="col-sm">
+                    {{#each truckPaymentData}}
                     <label for="ex2">Truck Total Amount</label>
                     <input class="form-control form-control-sm" placeholder="truckTotalAmount" name="truckTotalAmount"
-                        id="truckTotalAmount" value="{{this.input_truck_payment_truck_total_amount}}" maxlength="45" required style="width: 200px">
+                        id="truckTotalAmount" type="text" value="{{this.input_truck_payment_truck_total_amount}}" maxlength="45"
+                        required style="width: 200px">
                     <br>
                     <label for="ex1">Down Payment</label>
                     <input class="form-control form-control-sm" placeholder="downPayment" name="downPayment"
-                        id="downPayment" value="{{this.input_truck_payment_down_payment}}" maxlength="45" required style="width: 200px">
+                        id="downPayment" type="text" value="{{this.input_truck_payment_down_payment}}" maxlength="45" required
+                        style="width: 200px">
                     <br>
                     <label for="ex1">Sale Date</label>
-                    <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate" value="{{this.input_truck_payment_sale_date}}"
-                         maxlength="45" required style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate" type="text" 
+                        value="{{this.input_truck_payment_sale_date}}" maxlength="45" required style="width: 200px">
                     <br>
                     <label for="ex1">Pay/month</label>
-                    <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" value="{{this.input_truck_payment_pay_month}}"
-                         maxlength="45" required style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" type="text" 
+                        value="{{this.input_truck_payment_pay_month}}" maxlength="45" required style="width: 200px">
                     <br>
                     <label for="ex2">Paid Amount</label>
-                    <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount" 
-                        id="paidAmount" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px" required style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount"
+                        id="paidAmount" type="text" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px" required
+                        style="width: 200px">
                     <br>
                     <label for="ex1">Balance Amount</label>
                     <input class="form-control form-control-sm" placeholder="balanceAmount" name="balanceAmount"
-                        id="balanceAmount" value="{{this.input_truck_payment_balance_amount}}" maxlength="45" required style="width: 200px">
+                        id="balanceAmount" type="text" value="{{this.input_truck_payment_balance_amount}}" maxlength="45" required
+                        style="width: 200px">
                     <br>
-
+                    {{/each}}
                 </div>
             </div>
             <div class="form-group-sm row">

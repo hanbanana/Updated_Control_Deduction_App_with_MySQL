@@ -25,7 +25,7 @@ var routes_information = require("./controllers/information_controller");
 var routes_information_owner = require("./controllers/information_owner_controller");
 var routes_information_driver = require("./controllers/information_driver_controller");
 var routes_information_truck = require("./controllers/information_truck_controller");
-var routes_input_truck_payment = require("./controllers/input_truck_payment_contorller");
+var routes_input_truck_payment = require("./controllers/input_truck_payment_controller");
 var routes_input_part_purchase = require("./controllers/input_part_purchase_controller");
 
 app.use(routes_information_owner);

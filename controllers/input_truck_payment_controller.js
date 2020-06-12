@@ -126,14 +126,19 @@ router.get("/input_pages/create_input_truck_payment", function (req, res) {
 
 // Use Handlebars to render the edit_b_division.handlebars page.
 router.get("/input_pages/edit_input_truck_payment/:id", function (req, res) {
-    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, data) {
-        if (err) {
-            return res.status(500).end();
-        }
-        else if (req.session.user === "adminSession") {
-            console.log(data);
-            res.render("input_pages/edit_input_truck_payment", data[0]);
-        };
+    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, truckPaymentData) {
+        connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+            connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+                connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+                    if (err) {
+                        return res.status(500).end();
+                    }
+                    else if (req.session.user === "adminSession") {
+                        res.render("input_pages/edit_input_truck_payment", {truckPaymentData, ownerData, driverData, truckData });
+                    };
+                });
+            });
+        });
     });
 });
 
@@ -177,43 +182,9 @@ router.get("/input_truck_payment_list", function (req, res) {
 });
 
 // Update a list
-router.put("/information_owner_list/:id", function (req, res) {
-    connection.query("UPDATE information_owner_db SET information_owner_no = ?, information_owner_name = ?, information_owner_address = ?, information_owner_tel = ? WHERE id = ?",
-        [req.body.information_owner_no, req.body.information_owner_name, req.body.information_owner_address, req.body.information_owner_tel, req.params.id],
-        function (err, result) {
-            if (err) {
-                // If an error occurred, send a generic server failure
-                return res.status(500).end();
-            }
-            else if (result.changedRows === 0) {
-                // If no rows were changed, then the ID must not exist, so 404
-                return res.status(404).end();
-            }
-            res.status(200).end();
-
-        });
-});
-
-router.put("/information_truck_list/:id", function (req, res) {
-    connection.query("UPDATE information_truck_db SET information_truck_no = ?, information_truck_us_plate_no = ?, information_truck_mx_plate = ?, information_truck_maker = ?, information_truck_model = ?, information_truck_year = ?, information_truck_color = ?, information_truck_owner_no = ?, information_truck_owner_name = ?, information_truck_driver_id = ?, information_truck_driver_name = ?, information_truck_registration_name = ?, information_truck_rfid_tag = ? WHERE id = ?",
-        [req.body.information_truck_no, req.body.information_truck_us_plate_no, req.body.information_truck_mx_plate, req.body.information_truck_maker, req.body.information_truck_model, req.body.information_truck_year, req.body.information_truck_color, req.body.information_truck_owner_no, req.body.information_truck_owner_name, req.body.information_truck_driver_id, req.body.information_truck_driver_name, req.body.information_truck_registration_name, req.body.information_truck_rfid_tag, req.params.id],
-        function (err, result) {
-            if (err) {
-                // If an error occurred, send a generic server failure
-                return res.status(500).end();
-            }
-            else if (result.changedRows === 0) {
-                // If no rows were changed, then the ID must not exist, so 404
-                return res.status(404).end();
-            }
-            res.status(200).end();
-
-        });
-});
-
-router.put("/information_driver_list/:id", function (req, res) {
-    connection.query("UPDATE information_driver_db SET information_driver_no = ?, information_driver_name = ?, information_driver_license_id = ?, information_driver_rfc = ?, information_driver_ife = ?, information_driver_address = ? WHERE id = ?",
-        [req.body.information_driver_no, req.body.information_driver_name, req.body.information_driver_license_id, req.body.information_driver_rfc, req.body.information_driver_ife, req.body.information_driver_address, req.params.id],
+router.put("/input_truck_payment_list/:id", function (req, res) {
+    connection.query("UPDATE input_truck_payment_db SET input_truck_payment_truck_no = ?, input_truck_payment_owner_id = ?, input_truck_payment_owner_name = ?, input_truck_payment_driver_id = ?, input_truck_payment_driver_name = ?, input_truck_payment_truck_total_amount = ?, input_truck_payment_down_payment = ?, input_truck_payment_sale_date = ?, input_truck_payment_pay_month = ?, input_truck_payment_paid_amount = ?, input_truck_payment_balance_amount = ? WHERE id = ?",
+        [req.body.input_truck_payment_truck_no, req.body.input_truck_payment_owner_id, req.body.input_truck_payment_owner_name, req.body.input_truck_payment_driver_id, req.body.input_truck_payment_driver_name, req.body.input_truck_payment_truck_total_amount, req.body.input_truck_payment_down_payment, req.body.input_truck_payment_sale_date, req.body.input_truck_payment_pay_month, req.body.input_truck_payment_paid_amount, req.body.input_truck_payment_balance_amount, req.params.id],
         function (err, result) {
             if (err) {
                 // If an error occurred, send a generic server failure
