@@ -19,18 +19,21 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// b_division_controller file
+// controller file
 var routes_information = require("./controllers/information_controller");
 
-// b_vendor_controller file
-var routes_b_vendor = require("./controllers/b_vendor_controller");
+var routes_information_owner = require("./controllers/information_owner_controller");
+var routes_information_driver = require("./controllers/information_driver_controller");
+var routes_information_truck = require("./controllers/information_truck_controller");
+var routes_input_truck_payment = require("./controllers/input_truck_payment_contorller");
+var routes_input_part_purchase = require("./controllers/input_part_purchase_controller");
 
-// b_truck_controller file
-var routes_b_truck = require("./controllers/b_truck_controller");
+app.use(routes_information_owner);
+app.use(routes_information_driver);
+app.use(routes_information_truck);
+app.use(routes_input_truck_payment);
+app.use(routes_input_part_purchase);
 
-app.use(routes_information);
-app.use(routes_b_vendor);
-app.use(routes_b_truck);
 
 // first login page
 app.get('/', function (request, response) {
