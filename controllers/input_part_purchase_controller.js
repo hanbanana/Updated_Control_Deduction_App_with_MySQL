@@ -125,27 +125,32 @@ router.get("/input_pages/create_input_part_purchase", function (req, res) {
 });
 
 // Use Handlebars to render the edit_b_division.handlebars page.
-router.get("/input_pages/edit_input_truck_payment/:id", function (req, res) {
-    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, data) {
-        if (err) {
-            return res.status(500).end();
-        }
-        else if (req.session.user === "adminSession") {
-            console.log(data);
-            res.render("input_pages/edit_input_truck_payment", data[0]);
-        };
+router.get("/input_pages/edit_input_part_purchase/:id", function (req, res) {
+    connection.query("SELECT * FROM input_part_purchase_db where id = ?", [req.params.id], function (err, partPurchaseData) {
+        connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+            connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+                connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+                    if (err) {
+                        return res.status(500).end();
+                    }
+                    else if (req.session.user === "adminSession") {
+                        res.render("input_pages/edit_input_part_purchase", { partPurchaseData, ownerData, driverData, truckData });
+                    };
+                });
+            });
+        });
     });
 });
 
 // Use Handlebars to render the delete_b_division.handlebars page.
-router.get("/input_pages/delete_input_truck_payment/:id", function (req, res) {
-    connection.query("SELECT * FROM input_truck_payment_db where id = ?", [req.params.id], function (err, data) {
+router.get("/input_pages/delete_input_part_purchase/:id", function (req, res) {
+    connection.query("SELECT * FROM input_part_purchase_db where id = ?", [req.params.id], function (err, data) {
         if (err) {
             return res.status(500).end();
         }
         else if (req.session.user === "adminSession") {
             console.log(data);
-            res.render("input_pages/delete_input_truck_payment", data[0]);
+            res.render("input_pages/delete_input_part_purchase", data[0]);
         };
     });
 });
@@ -178,8 +183,8 @@ router.get("/input_part_purchase_list", function (req, res) {
 
 // Update a list
 router.put("/input_part_purchase_list/:id", function (req, res) {
-    connection.query("UPDATE input_part_purchase_db SET input_part_purchase_status = ?, input_part_purchase_type = ?, input_truck_payment_truck_no = ?, input_truck_payment_owner_id = ?, input_truck_payment_owner_name = ?, input_truck_payment_driver_id = ?, input_truck_payment_driver_name = ?, input_truck_payment_truck_total_amount = ?, input_truck_payment_down_payment = ?, input_truck_payment_sale_date = ?, input_truck_payment_pay_month = ?, input_truck_payment_paid_amount = ?, input_truck_payment_balance_amount = ? WHERE id = ?",
-        [req.body.input_part_purchase_status, req.body.input_part_purchase_type, req.body.input_truck_payment_truck_no, req.body.input_truck_payment_owner_id, req.body.input_truck_payment_owner_name, req.body.input_truck_payment_driver_id, req.body.input_truck_payment_driver_name, req.body.input_truck_payment_truck_total_amount, req.body.input_truck_payment_down_payment, req.body.input_truck_payment_sale_date, req.body.input_truck_payment_pay_month, req.body.input_truck_payment_paid_amount, req.body.input_truck_payment_balance_amount, req.params.id],
+    connection.query("UPDATE input_part_purchase_db SET input_part_purchase_status = ?, input_part_purchase_type = ?, input_part_purchase_truck_no = ?, input_part_purchase_owner_id = ?, input_part_purchase_driver_id = ?, input_part_purchase_invoice_no = ?, input_part_purchase_amount = ?, input_part_purchase_pay_week = ?, input_part_purchase_date = ?, input_part_purchase_add_pay = ?, input_part_purchase_cr = ?, input_part_purchase_invoice = ?, input_part_purchase_desc = ? WHERE id = ?",
+        [req.body.input_part_purchase_status, req.body.input_part_purchase_type, req.body.input_part_purchase_truck_no, req.body.input_part_purchase_owner_id, req.body.input_part_purchase_driver_id, req.body.input_part_purchase_invoice_no, req.body.input_part_purchase_amount, req.body.input_part_purchase_pay_week, req.body.input_part_purchase_date, req.body.input_part_purchase_add_pay, req.body.input_part_purchase_cr, req.body.input_part_purchase_invoice, req.body.input_part_purchase_desc, req.params.id],
         function (err, result) {
             if (err) {
                 // If an error occurred, send a generic server failure
@@ -195,8 +200,8 @@ router.put("/input_part_purchase_list/:id", function (req, res) {
 });
 
 // Delete a list
-router.delete("/input_truck_payment_list/:id", function (req, res) {
-    connection.query("DELETE FROM input_truck_payment_db WHERE id = ?", [req.params.id], function (err, result) {
+router.delete("/input_part_purchase_list/:id", function (req, res) {
+    connection.query("DELETE FROM input_part_purchase_db WHERE id = ?", [req.params.id], function (err, result) {
         if (err) {
             // If an error occurred, send a generic server failure
             return res.status(500).end();

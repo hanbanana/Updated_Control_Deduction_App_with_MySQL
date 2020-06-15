@@ -1,0 +1,184 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Part Purchase</h2>
+    <br>
+    <h4>Edit</h4>
+    <br>
+
+    {{!-- On One Line Form- --}}
+    <div class="formDiv">
+        {{#each partPurchaseData}}
+        <form data-id="{{this.id}}" class="update-form">
+            {{/each}}
+            <div class="form-group-sm row">
+                <div class="col-sm">
+                    {{#each partPurchaseData}}
+                    <label for="ex3">Status</label>
+                    <select class="form-control form-control-sm" name="Status" id="Status" required
+                        style="width: 100px">
+                        <option value="{{this.input_part_purchase_status}}" selected>{{this.input_part_purchase_status}}
+                        </option>
+                        {{/each}}
+                        <option value="Open">Open</option>
+                        <option value="Close">Close</option>
+                        
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each partPurchaseData}}
+                    <label for="ex3">Type</label>
+                    <select class="form-control form-control-sm" name="Type" id="Type" required style="width: 100px">
+                        <option value="{{this.input_part_purchase_type}}" selected>{{this.input_part_purchase_type}}
+                        </option>
+                        <option value="S">S</option>
+                        <option value="F">F</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each partPurchaseData}}
+                    <label for="ex3">Truck NO</label>
+                    <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
+                        style="width: 100px">
+                        <option value="{{this.input_part_purchase_truck_no}}" selected>
+                            {{this.input_part_purchase_truck_no}}</option>
+                        {{/each}}
+                        {{#each input_truck}}
+                        <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each partPurchaseData}}
+                    <label for="ex3">Owner Id</label>
+                    <select class="form-control form-control-sm" name="ownerId" id="ownerId" required
+                        style="width: 100px">
+                        <option value="{{this.input_part_purchase_owner_id}}" selected>
+                            {{this.input_part_purchase_owner_id}}</option>
+                        {{/each}}
+                        {{#each information_owner}}
+                        <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each partPurchaseData}}
+                    <label for="ex3">Driver No</label>
+                    <select class="form-control form-control-sm" name="driverId" id="driverId" required
+                        style="width: 100px">
+                        <option value="{{this.input_part_purchase_driver_id}}" selected>
+                            {{this.input_part_purchase_driver_id}}</option>
+                        {{/each}}
+                        {{#each information_driver}}
+                        <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                      {{#each partPurchaseData}}
+                    <label for="ex1">Invoice No</label>
+                    <input class="form-control form-control-sm" placeholder="invoiceNo" name="invoiceNo" id="invoiceNo"
+                        type="text" value="{{this.input_part_purchase_invoice_no}}" maxlength="45" required
+                        style="width: 200px">
+                         {{/each}}
+                    <br>
+
+                </div>
+                <div class="col-sm">
+                    {{#each partPurchaseData}}
+                    <label for="ex2">Amount</label>
+                    <input class="form-control form-control-sm" placeholder="Amount" name="Amount" id="Amount"
+                        type="text" value="{{this.input_part_purchase_amount}}" maxlength="45" required
+                        style="width: 200px">
+                    <br>
+                    <label for="ex1">Pay/week</label>
+                    <input class="form-control form-control-sm" placeholder="payWeek" name="payWeek" id="payWeek"
+                        type="text" value="{{this.input_part_purchase_pay_week}}" maxlength="45" required
+                        style="width: 200px">
+                    <br>
+                    <label for="ex1">Date</label>
+                    <input class="form-control form-control-sm" placeholder="Date" name="Date" id="Date" type="text"
+                        value="{{this.input_part_purchase_date}}" maxlength="45" required style="width: 200px">
+                    <br>
+                    <label for="ex1">Add Pay</label>
+                    <input class="form-control form-control-sm" placeholder="addPay" name="addPay" id="addPay"
+                        type="text" value="{{this.input_part_purchase_add_pay}}" maxlength="45" required
+                        style="width: 200px">
+                    <br>
+                    <label for="ex2">CR</label>
+                    <input class="form-control form-control-sm" placeholder="CR" name="CR" id="CR" type="text"
+                        value="{{this.input_part_purchase_cr}}" maxlength="200px" required
+                        style="width: 200px">
+                    <br>
+                    <label for="ex1">Invoice</label>
+                    <input class="form-control form-control-sm" placeholder="Invoice" name="Invoice" id="Invoice"
+                        type="text" value="{{this.input_part_purchase_invoice}}" maxlength="45" required
+                        style="width: 200px">
+                    <br>
+                    <label for="ex1">DESC</label>
+                    <input class="form-control form-control-sm" placeholder="DESC" name="DESC" id="DESC"
+                        type="text" value="{{this.input_part_purchase_desc}}" maxlength="45" required
+                        style="width: 200px">
+                    <br>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="form-group-sm row">
+                <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+
+
+            </div>
+    </div>
+    </form>
+    <div class="form-group-sm row">
+        <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
+        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+        <br>
+    </div>
+</div>
+
+</div>
+<br>
+
+</div>
+
+<script type="text/javascript">
+
+    $(".update-form").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+
+        var updatedPlan = {
+            input_part_purchase_status: $("#Status").val().trim(),
+            input_part_purchase_type: $("#Type").val().trim(),
+            input_part_purchase_truck_no: $("#truckNo").val().trim(),
+            input_part_purchase_owner_id: $("#ownerId").val().trim(),
+            input_part_purchase_driver_id: $("#driverId").val().trim(),
+            input_part_purchase_invoice_no: $("#invoiceNo").val().trim(),
+            input_part_purchase_amount: $("#Amount").val().trim(),
+            input_part_purchase_pay_week: $("#payWeek").val().trim(),
+            input_part_purchase_date: $("#Date").val().trim(),
+            input_part_purchase_add_pay: $("#addPay").val().trim(),
+            input_part_purchase_cr: $("#CR").val().trim(),
+            input_part_purchase_invoice: $("#Invoice").val().trim(),
+            input_part_purchase_desc: $("#DESC").val().trim(),
+        };
+
+        var id = $(this).data("id");
+        // Send the PUT request.
+        $.ajax("/input_part_purchase_list/" + id, {
+            type: "PUT",
+            data: updatedPlan
+        }).then(
+            function () {
+                console.log("updated!");
+                // Reload the page to get the updated list
+                location.assign("/input_part_purchase");
+            }
+        );
+    });
+
+</script>
