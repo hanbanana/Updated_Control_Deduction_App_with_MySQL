@@ -1,0 +1,25 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Truck Payment</h2>
+    <br>
+    <h4>Create</h4>
+    <br>
+
+<form id="searchTruck">
+  <label for="truckNo">Search TruckNo:</label>
+  <input type="search" id="truckNo" name="truckNo">
+  <input type="submit">
+</form>
+
+
+
+<script type="text/javascript">
+
+
+    $("#searchTruck").on("submit", function (event) {
+        var truckNo = $("#truckNo").val().trim();
+        // Make sure to preventDefault on a submit event.
+        window.location.href="/deduction_pages/search_truck_list/" + truckNo
+    });
+
+</script>

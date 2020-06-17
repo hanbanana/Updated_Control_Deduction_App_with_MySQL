@@ -1,0 +1,34 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Truck Payment</h2>
+    <br>
+    <h4>Create</h4>
+    <br>
+
+    <div>
+        <div class="column">
+            <label for="truckNo">Search TruckNo:</label>
+        </div>
+        <div class="column">
+            <section id="resultSection">
+                <input type="search" id="truckNo" name="truckNo">
+            </section>
+        </div>
+        <div class="column">
+            <button id="resultBox">Search</button>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+
+        $("#resultBox").click(function () {
+            var url = "/deduction_pages/deduction_search_truck_history/"
+            var resultTotalValue = $("#truckNo").val().trim();
+            var goToUrlWithTotalValue = url + resultTotalValue
+            //this will redirect us in new tab
+            window.open(goToUrlWithTotalValue);
+        });
+
+    </script>

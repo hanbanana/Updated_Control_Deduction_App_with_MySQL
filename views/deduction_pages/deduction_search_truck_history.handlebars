@@ -1,0 +1,39 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Truck Payment</h2>
+    <br>
+    <h4>Create</h4>
+    <br>
+
+
+  <label for="truckNo">Search TruckNo:</label>
+   {{#each truckPaymentData}}
+  <h4>{{this.input_truck_payment_truck_no}}</h4>
+
+
+ {{/each}}
+ {{#each truckPaymentData}}
+                    <label for="ex3">Truck NO</label>
+                    <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
+                        style="width: 100px">
+                        <option value="{{this.input_truck_payment_truck_no}}" selected>{{this.input_truck_payment_truck_no}}</option>
+                        {{/each}}
+                        {{#each truckData}}
+                        <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+
+
+
+<script type="text/javascript">
+
+
+    $("#searchTruck").on("submit", function (event) {
+        var truckNo = $("#truckNo").val().trim();
+        // Make sure to preventDefault on a submit event.
+        window.location.href="/deduction_pages/search_truck_list/" + truckNo
+    });
+
+</script>
