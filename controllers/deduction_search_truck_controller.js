@@ -126,13 +126,19 @@ router.get("/input_pages/create_input_truck_payment", function (req, res) {
 
 // Use Handlebars to render the edit_b_division.handlebars page.
 router.get("/deduction_pages/deduction_search_truck_history/:input_truck_payment_truck_no", function (req, res) {
-    connection.query("SELECT * FROM input_truck_payment_db where input_truck_payment_truck_no = ?", [req.params.input_truck_payment_truck_no], function (err, truckPaymentData) {
-        if (err) {
-            return res.status(500).end();
-        }
-        else if (req.session.user === "adminSession") {
-            res.render("deduction_pages/deduction_search_truck_history", { truckPaymentData });
-        };
+    connection.query("SELECT * FROM bc_deduction_db.input_truck_payment_db where id in (SELECT MAX(id) FROM bc_deduction_db.input_truck_payment_db where input_truck_payment_truck_no = ?)", [req.params.input_truck_payment_truck_no], function (err, truckPaymentData) {
+        connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+            connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+                connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+                    if (err) {
+                        return res.status(500).end();
+                    }
+                    else if (req.session.user === "adminSession") {
+                        res.render("deduction_pages/deduction_search_truck_history", {truckPaymentData, ownerData, driverData, truckData });
+                    };
+                });
+            });
+        });
     });
 });
 
