@@ -162,8 +162,12 @@
             maxlength="45" required style="width: 200px">
           <br>
           <label for="ex1">Pay/month</label>
-          <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" type="number"
-            maxlength="45" required style="width: 200px">
+          <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth"
+            type="number" maxlength="45" required style="width: 200px">
+
+          {{!-- <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
+            id="payMonth36" required></p> --}}
+
           <br>
           <label for="ex2">Paid Amount</label>
           <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount" id="paidAmount"
@@ -205,7 +209,11 @@
     var paid_amount = Number($("#paidAmount").val());
 
     var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+    var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
+    var final_result_pay_per_month = result_pay_per_month / 36;
+
     $("#balanceAmount").html(result_balance_Amaount);
+    $("#payMonth36").html(final_result_pay_per_month);
 
     var newPlan = {
       input_truck_payment_truck_no: $("#truckNo").val().trim(),
@@ -261,8 +269,11 @@
       var paid_amount = Number($("#paidAmount").val());
 
       var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+      var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
+      var final_result_pay_per_month = result_pay_per_month / 36;
 
       $("#balanceAmount").html(result_balance_Amaount);
+      $("#payMonth36").html(final_result_pay_per_month);
 
 
       // result_totalCostToAmazon = (supplier_price * order_quantity) + ship_to_us_or_amazon + ship_to_amazon + upc_code + upc_sticker;
