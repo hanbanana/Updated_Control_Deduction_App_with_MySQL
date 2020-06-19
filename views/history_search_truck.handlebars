@@ -1,6 +1,6 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
     <br>
-    <h2>Truck Payment</h2>
+    <h2>Truck Payment History</h2>
     <br>
     <h4>Truck Number Search</h4>
     <br>
@@ -19,7 +19,7 @@
         </div>
     </div> --}}
 
-    <form class="form-inline" id="truckNoSearch">
+    <form class="form-inline" id="truckNoSearchHistory">
         <div class="form-group mb-2">
             <label for="staticEmail2" class="sr-only">Search Truck Number:</label>
             <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Search Truck Number:">
@@ -36,9 +36,9 @@
     <script type="text/javascript">
 
 
-        $("#truckNoSearch").on("submit", function (event) {
+        $("#truckNoSearchHistory").on("submit", function (event) {
             event.preventDefault();
-            var url = "/deduction_pages/add_truck_payment_deduction/"
+            var url = "/history_pages/list_truck_payment_history/"
             var resultTotalValue = $("#truckNo").val().trim();
             var goToUrlWithTotalValue = url + resultTotalValue;
             //this will redirect us in new tab

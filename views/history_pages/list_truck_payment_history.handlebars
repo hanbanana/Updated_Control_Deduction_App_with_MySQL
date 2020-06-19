@@ -1,10 +1,10 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
 
   <br>
-  <h2>Truck Payment</h2>
+  <h2>Truck Payment History List</h2>
   {{!-- <label class="heading">Owner History</label> --}}
   <br>
-  <a href="/input_pages/create_input_truck_payment" style="font-size: 20px">Create</a>
+  {{!-- <a href="/input_pages/create_input_truck_payment" style="font-size: 20px">Create</a> --}}
   <br><br>
 
   <div class="form-group" style="width: 1000px">
@@ -25,6 +25,7 @@
               <th scope="col">Sale Date</th>
               <th scope="col">Pay/month</th>
               <th scope="col">Paid Amount</th>
+              <th scope="col">This Time Payment</th>
               <th scope="col">Balance Amount</th>
               <th scope="col">Delete</th>
               <th scope="col">Edit</th>
@@ -32,7 +33,7 @@
           </thead>
 
           <tbody>
-            {{#each b_division}}
+            {{#each truckPaymentData}}
             <tr>
               {{!-- <td>{{this.id}}</td> --}}
               <td style="width:50px">{{this.input_truck_payment_truck_no}}</td>
@@ -45,6 +46,7 @@
               <td style="width:100px">{{this.input_truck_payment_sale_date}}</td>
               <td style="width:50px">{{this.input_truck_payment_pay_month}}</td>
               <td style="width:100px">{{this.input_truck_payment_paid_amount}}</td>
+              <td style="width:50px">{{this.input_truck_payment_this_time_payment}}</td>
               <td style="width:50px">{{this.input_truck_payment_balance_amount}}</td>
               <td style="width:50px"><a href="/input_pages/delete_input_truck_payment/{{this.id}}">Delete</a>
               </td>
