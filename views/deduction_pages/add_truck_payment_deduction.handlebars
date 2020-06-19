@@ -1,0 +1,280 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+    <br>
+    <h2>Truck Payment</h2>
+    <br>
+    <h4>Create</h4>
+    <br>
+
+    {{!-- Vertical Input Form
+  <form id="createplan">
+    <div class="form-group row form-horizontal">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">BL</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="BL" name="BL" id="BL">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Terminal Name</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Terminal Name" name="Terminal_Name" id="Terminal_Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Container No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Container No." name="Container_No" id="Container_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vasse No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Vassel No." name="Vassel_No" id="Vassel_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ETA</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control form-control-sm" placeholder="ETA" name="ETA" id="ETA">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Weight(kg)</label>
+      <div class="col-sm-10">
+        <input type="number" step="0.001" name="amount" placeholder="0.000" class="form-control form-control-sm"
+          name="Weight" id="Weight">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Seal No.</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Seal No." name="Seal_No" id="Seal_No">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Delivery Location</label>
+      <div class="col-sm-10">
+        <input class="form-control form-control-sm" placeholder="Delivery Location" name="Delivery_Location"
+          id="Delivery_Location">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Status</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Status_" id="Status_">
+          <option selected>Choose...</option>
+          <option>Done</option>
+          <option>Pending</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Return</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Return_" id="Return_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Close</label>
+      <div class="col-sm-10">
+        <select class="form-control form-control-sm" name="Close_" id="Close_">
+          <option selected>Choose...</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary pull-right" style="display: block; margin: 0 auto;">Save</button>
+  </form> --}}
+
+
+
+
+
+
+    {{!-- On One Line Form- --}}
+    <div class="formDiv">
+
+        <form id="createplan">
+            <div class="form-group-sm row">
+                <div class="col-sm">
+                    {{#each truckPaymentData}}
+                    <label for="ex1">Truck NO</label>
+                    <input class="form-control form-control-sm" placeholder="truckNo" name="truckNo" id="truckNo"
+                        value="{{this.input_truck_payment_truck_no}}" style="width: 200px" disabled>
+                    <br>
+                    <label for="ex2">Owner No</label>
+                    <input class="form-control form-control-sm" placeholder="ownerId" name="ownerId" id="ownerId"
+                        value="{{this.input_truck_payment_owner_id}}" style="width: 200px" disabled>
+                    <br>
+                    <label for="ex1">Owner Name</label>
+                    <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
+                        value="{{this.input_truck_payment_owner_name}}" style="width: 200px" disabled>
+                    <br>
+                    <label for="ex2">Driver No</label>
+                    <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
+                        value="{{this.input_truck_payment_driver_id}}" style="width: 200px" disabled>
+                    <br>
+                    <label for="ex2">Driver Name</label>
+                    <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
+                        id="driverName" value="{{this.input_truck_payment_driver_name}}" style="width: 200px" disabled>
+                    <br>
+                    {{/each}}
+                </div>
+                <div class="col-sm">
+                    {{#each truckPaymentData}}
+                    <label for="ex2">Truck Total Amount</label>
+                    <input class="form-control form-control-sm" placeholder="truckTotalAmount" name="truckTotalAmount"
+                        id="truckTotalAmount" type="text" value="{{this.input_truck_payment_truck_total_amount}}"
+                        maxlength="45" disabled style="width: 200px">
+                    <br>
+                    <label for="ex1">Down Payment</label>
+                    <input class="form-control form-control-sm" placeholder="downPayment" name="downPayment"
+                        id="downPayment" type="text" value="{{this.input_truck_payment_down_payment}}" maxlength="45"
+                        disabled style="width: 200px">
+                    <br>
+                    <label for="ex1">Sale Date</label>
+                    <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate"
+                        type="text" value="{{this.input_truck_payment_sale_date}}" maxlength="45" disabled
+                        style="width: 200px">
+                    <br>
+                    <label for="ex1">Pay/month</label>
+                    <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth"
+                        type="text" value="{{this.input_truck_payment_pay_month}}" maxlength="45" disabled
+                        style="width: 200px">
+                    <br>
+                    <label for="ex2">Paid Amount</label>
+                    <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount"
+                        id="paidAmount" type="text" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px"
+                        disabled style="width: 200px">
+                    <br>
+                    <label for="ex1">Balance Amount</label>
+                    <input class="form-control form-control-sm" placeholder="balanceAmount" name="balanceAmount"
+                        id="balanceAmount" type="text" value="{{this.input_truck_payment_balance_amount}}"
+                        maxlength="200px" disabled style="width: 200px">
+                    {{/each}}
+                </div>
+                <div class="col-sm">
+                    {{#each truckPaymentData}}
+                    <label for="ex2">This Time Payment</label>
+                    <input class="form-control form-control-sm" placeholder="thisTimePayment" name="thisTimePayment"
+                        id="thisTimePayment" type="text" maxlength="200px" style="width: 200px">
+                    <br>
+                    <label for="ex1" id='balanceId'>New Balance Amount</label>
+                    <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
+                        id="newBalanceAmount" required></p>
+                    {{/each}}
+
+                    <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+                        onclick="window.history.back()">Cancel</button>
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+                </div>
+
+
+            </div>
+        </form>
+
+        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        onclick="window.location.href='/master_division'">Cancel</button> --}}
+        <br>
+
+    </div>
+
+</div>
+<br>
+
+<script type="text/javascript">
+
+
+    $("#createplan").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var truck_total_amount = Number($("#truckTotalAmount").val());
+        var down_payment = Number($("#downPayment").val());
+        var pay_per_month = Number($("#payMonth").val());
+        var paid_amount = Number($("#paidAmount").val());
+        var this_time_payment = Number($("#thisTimePayment").val());
+        var balance_amount = Number($("#balanceAmount").val());
+
+        var result_balance_Amaount = balance_amount - this_time_payment;
+        $("#newBalanceAmount").html(result_balance_Amaount);
+
+        var newPlan = {
+            input_truck_payment_truck_no: $("#truckNo").val().trim(),
+            input_truck_payment_owner_id: $("#ownerId").val().trim(),
+            input_truck_payment_owner_name: $("#ownerName").val().trim(),
+            input_truck_payment_driver_id: $("#driverId").val().trim(),
+            input_truck_payment_driver_name: $("#driverName").val().trim(),
+            input_truck_payment_truck_total_amount: $("#truckTotalAmount").val().trim(),
+            input_truck_payment_down_payment: $("#downPayment").val().trim(),
+            input_truck_payment_sale_date: $("#saleDate").val().trim(),
+            input_truck_payment_pay_month: $("#payMonth").val().trim(),
+            input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
+            input_truck_payment_balance_amount: $("#newBalanceAmount").text().trim(),
+        };
+
+        // Send the POST request.
+        $.ajax("/input_truck_payment_list", {
+            type: "POST",
+            data: newPlan
+        }).then(
+            function () {
+                console.log("created new plan");
+                // Reload the page to get the updated list
+                location.assign("/input_truck_payment");
+            }
+        );
+
+
+    });
+
+
+
+
+    // Calculate
+
+    var truck_total_amount = 0;
+    var down_payment = 0;
+    var pay_per_month = 0;
+    var paid_amount = 0;
+    var balance_amount = 0;
+
+    var result_balance_Amaount = 0;
+
+    $("#newBalanceAmount").on("click", function () {
+        event.preventDefault();
+
+        calculate();
+        function calculate() {
+
+            var truck_total_amount = Number($("#truckTotalAmount").val());
+            var down_payment = Number($("#downPayment").val());
+            var pay_per_month = Number($("#payMonth").val());
+            var paid_amount = Number($("#paidAmount").val());
+            var this_time_payment = Number($("#thisTimePayment").val());
+            var balance_amount = Number($("#balanceAmount").val());
+
+            var result_balance_Amaount = balance_amount - this_time_payment;
+            $("#newBalanceAmount").html(result_balance_Amaount);
+
+
+            // result_totalCostToAmazon = (supplier_price * order_quantity) + ship_to_us_or_amazon + ship_to_amazon + upc_code + upc_sticker;
+            // result_amazonFbmFee = amazon_fee + fba_fee;
+            // result_netProfitFromAmazon = price_on_amazon - amazon_fee - fba_fee;
+            // result_finalPurchasingItemPrice = result_totalCostToAmazon / order_quantity;
+            // result_finalPurchasingListingPrice = item_quantity_on_listing * (result_totalCostToAmazon / order_quantity);
+            // result_finalProfit = price_on_amazon - amazon_fee - fba_fee - result_finalPurchasingListingPrice;
+            // result_shipUs = (supplier_price * order_quantity) * 0.6;
+            // result_shipAmazon = (supplier_price * order_quantity) * 0.4;
+            // result_shipCostEachItem
+
+
+            console.log(result_balance_Amaount);
+        };
+    });
+
+</script>

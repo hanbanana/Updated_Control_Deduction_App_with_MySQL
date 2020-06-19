@@ -16,7 +16,8 @@
                     <label for="ex3">Truck NO</label>
                     <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
                         style="width: 100px">
-                        <option value="{{this.input_truck_payment_truck_no}}" selected>{{this.input_truck_payment_truck_no}}</option>
+                        <option value="{{this.input_truck_payment_truck_no}}" selected>
+                            {{this.input_truck_payment_truck_no}}</option>
                         {{/each}}
                         {{#each truckData}}
                         <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
@@ -28,7 +29,8 @@
                     <label for="ex3">Owner No</label>
                     <select class="form-control form-control-sm" name="ownerId" id="ownerId" required
                         style="width: 100px">
-                        <option value="{{this.input_truck_payment_owner_id}}" selected>{{this.input_truck_payment_owner_id}}</option>
+                        <option value="{{this.input_truck_payment_owner_id}}" selected>
+                            {{this.input_truck_payment_owner_id}}</option>
                         {{/each}}
                         {{#each ownerData}}
                         <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
@@ -40,7 +42,8 @@
                     <label for="ex3">Owner Name</label>
                     <select class="form-control form-control-sm" name="ownerName" id="ownerName" required
                         style="width: 100px">
-                        <option value="{{this.input_truck_payment_owner_name}}" selected>{{this.input_truck_payment_owner_name}}</option>
+                        <option value="{{this.input_truck_payment_owner_name}}" selected>
+                            {{this.input_truck_payment_owner_name}}</option>
                         {{/each}}
                         {{#each ownerData}}
                         <option value="{{this.information_owner_name}}">{{this.information_owner_name}}</option>
@@ -52,7 +55,8 @@
                     <label for="ex3">Driver No</label>
                     <select class="form-control form-control-sm" name="driverId" id="driverId" required
                         style="width: 100px">
-                        <option value="{{this.input_truck_payment_driver_id}}" selected>{{this.input_truck_payment_driver_id}}</option>
+                        <option value="{{this.input_truck_payment_driver_id}}" selected>
+                            {{this.input_truck_payment_driver_id}}</option>
                         {{/each}}
                         {{#each driverData}}
                         <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
@@ -64,7 +68,8 @@
                     <label for="ex3">Driver Name</label>
                     <select class="form-control form-control-sm" name="driverName" id="driverName" required
                         style="width: 100px">
-                        <option value="{{this.input_truck_payment_driver_name}}" selected>{{this.input_truck_payment_driver_name}}</option>
+                        <option value="{{this.input_truck_payment_driver_name}}" selected>
+                            {{this.input_truck_payment_driver_name}}</option>
                         {{/each}}
                         {{#each driverData}}
                         <option value="{{this.information_driver_name}}">{{this.information_driver_name}}</option>
@@ -78,32 +83,32 @@
                     {{#each truckPaymentData}}
                     <label for="ex2">Truck Total Amount</label>
                     <input class="form-control form-control-sm" placeholder="truckTotalAmount" name="truckTotalAmount"
-                        id="truckTotalAmount" type="text" value="{{this.input_truck_payment_truck_total_amount}}" maxlength="45"
-                        required style="width: 200px">
+                        id="truckTotalAmount" type="text" value="{{this.input_truck_payment_truck_total_amount}}"
+                        maxlength="45" required style="width: 200px">
                     <br>
                     <label for="ex1">Down Payment</label>
                     <input class="form-control form-control-sm" placeholder="downPayment" name="downPayment"
-                        id="downPayment" type="text" value="{{this.input_truck_payment_down_payment}}" maxlength="45" required
-                        style="width: 200px">
+                        id="downPayment" type="text" value="{{this.input_truck_payment_down_payment}}" maxlength="45"
+                        required style="width: 200px">
                     <br>
                     <label for="ex1">Sale Date</label>
-                    <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate" type="text" 
-                        value="{{this.input_truck_payment_sale_date}}" maxlength="45" required style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate"
+                        type="text" value="{{this.input_truck_payment_sale_date}}" maxlength="45" required
+                        style="width: 200px">
                     <br>
                     <label for="ex1">Pay/month</label>
-                    <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" type="text" 
-                        value="{{this.input_truck_payment_pay_month}}" maxlength="45" required style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth"
+                        type="text" value="{{this.input_truck_payment_pay_month}}" maxlength="45" required
+                        style="width: 200px">
                     <br>
                     <label for="ex2">Paid Amount</label>
                     <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount"
-                        id="paidAmount" type="text" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px" required
-                        style="width: 200px">
+                        id="paidAmount" type="text" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px"
+                        required style="width: 200px">
                     <br>
-                    <label for="ex1">Balance Amount</label>
-                    <input class="form-control form-control-sm" placeholder="balanceAmount" name="balanceAmount"
-                        id="balanceAmount" type="text" value="{{this.input_truck_payment_balance_amount}}" maxlength="45" required
-                        style="width: 200px">
-                    <br>
+                    <label for="ex1" id='balanceId'>Balance Amount</label>
+                    <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
+                        id="balanceAmount" required></p>
                     {{/each}}
                 </div>
             </div>
@@ -134,6 +139,13 @@
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
+        var truck_total_amount = Number($("#truckTotalAmount").val());
+        var down_payment = Number($("#downPayment").val());
+        var pay_per_month = Number($("#payMonth").val());
+        var paid_amount = Number($("#paidAmount").val());
+
+        var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+        $("#balanceAmount").html(result_balance_Amaount);
 
         var updatedPlan = {
             input_truck_payment_truck_no: $("#truckNo").val().trim(),
@@ -146,7 +158,7 @@
             input_truck_payment_sale_date: $("#saleDate").val().trim(),
             input_truck_payment_pay_month: $("#payMonth").val().trim(),
             input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
-            input_truck_payment_balance_amount: $("#balanceAmount").val().trim(),
+            input_truck_payment_balance_amount: $("#balanceAmount").text().trim(),
         };
 
         var id = $(this).data("id");
@@ -161,6 +173,52 @@
                 location.assign("/input_truck_payment");
             }
         );
+
+
+
     });
+
+
+    // Calculate
+
+    var truck_total_amount = 0;
+    var down_payment = 0;
+    var pay_per_month = 0;
+    var paid_amount = 0;
+    var balance_amount = 0;
+
+    var result_balance_Amaount = 0;
+
+    $("#balanceAmount").on("click", function () {
+        event.preventDefault();
+
+        calculate();
+        function calculate() {
+
+            var truck_total_amount = Number($("#truckTotalAmount").val());
+            var down_payment = Number($("#downPayment").val());
+            var pay_per_month = Number($("#payMonth").val());
+            var paid_amount = Number($("#paidAmount").val());
+
+            var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+
+            $("#balanceAmount").html(result_balance_Amaount);
+
+
+            // result_totalCostToAmazon = (supplier_price * order_quantity) + ship_to_us_or_amazon + ship_to_amazon + upc_code + upc_sticker;
+            // result_amazonFbmFee = amazon_fee + fba_fee;
+            // result_netProfitFromAmazon = price_on_amazon - amazon_fee - fba_fee;
+            // result_finalPurchasingItemPrice = result_totalCostToAmazon / order_quantity;
+            // result_finalPurchasingListingPrice = item_quantity_on_listing * (result_totalCostToAmazon / order_quantity);
+            // result_finalProfit = price_on_amazon - amazon_fee - fba_fee - result_finalPurchasingListingPrice;
+            // result_shipUs = (supplier_price * order_quantity) * 0.6;
+            // result_shipAmazon = (supplier_price * order_quantity) * 0.4;
+            // result_shipCostEachItem
+
+
+            console.log(result_balance_Amaount);
+        };
+    });
+
 
 </script>

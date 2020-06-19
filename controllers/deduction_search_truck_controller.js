@@ -109,23 +109,22 @@ router.get("/deduction_search_truck", authAdmin, function (req, res) {
 });
 
 // Use Handlebars to render the create_b_division.handlebars page.
-router.get("/input_pages/create_input_truck_payment", function (req, res) {
-    connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
-        connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
-            connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
-                if (err) {
-                    return res.status(500).end();
-                }
-                else if (req.session.user === "adminSession") {
-                    res.render("input_pages/create_input_truck_payment", { information_owner: ownerData, information_driver: driverData, input_truck: truckData });
-                };
-            });
-        });
-    });
-});
+// router.get("/input_pages/create_input_truck_payment", function (req, res) {
+//     connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+//         connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+//             connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+//                 if (err) {
+//                     return res.status(500).end();
+//                 }
+//                 else if (req.session.user === "adminSession") {
+//                     res.render("input_pages/create_input_truck_payment", { information_owner: ownerData, information_driver: driverData, input_truck: truckData });
+//                 };
+//             });
+//         });
+//     });
+// });
 
-// Use Handlebars to render the edit_b_division.handlebars page.
-router.get("/deduction_pages/deduction_search_truck_history/:input_truck_payment_truck_no", function (req, res) {
+router.get("/deduction_pages/add_truck_payment_deduction/:input_truck_payment_truck_no", function (req, res) {
     connection.query("SELECT * FROM bc_deduction_db.input_truck_payment_db where id in (SELECT MAX(id) FROM bc_deduction_db.input_truck_payment_db where input_truck_payment_truck_no = ?)", [req.params.input_truck_payment_truck_no], function (err, truckPaymentData) {
         connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
             connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
@@ -134,13 +133,31 @@ router.get("/deduction_pages/deduction_search_truck_history/:input_truck_payment
                         return res.status(500).end();
                     }
                     else if (req.session.user === "adminSession") {
-                        res.render("deduction_pages/deduction_search_truck_history", {truckPaymentData, ownerData, driverData, truckData });
+                        res.render("deduction_pages/add_truck_payment_deduction", {truckPaymentData, ownerData, driverData, truckData });
                     };
                 });
             });
         });
     });
 });
+
+// Use Handlebars to render the edit_b_division.handlebars page.
+// router.get("/deduction_pages/add_truck_payment_deduction/:input_truck_payment_truck_no", function (req, res) {
+//     connection.query("SELECT * FROM bc_deduction_db.input_truck_payment_db where id in (SELECT MAX(id) FROM bc_deduction_db.input_truck_payment_db where input_truck_payment_truck_no = ?)", [req.params.input_truck_payment_truck_no], function (err, truckPaymentData) {
+//         connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+//             connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+//                 connection.query("SELECT * FROM information_truck_db;", function (err, truckData) {
+//                     if (err) {
+//                         return res.status(500).end();
+//                     }
+//                     else if (req.session.user === "adminSession") {
+//                         res.render("deduction_pages/add_truck_payment_deduction", {truckPaymentData, ownerData, driverData, truckData });
+//                     };
+//                 });
+//             });
+//         });
+//     });
+// });
 
 // Use Handlebars to render the delete_b_division.handlebars page.
 router.get("/input_pages/delete_input_truck_payment/:id", function (req, res) {
@@ -157,8 +174,8 @@ router.get("/input_pages/delete_input_truck_payment/:id", function (req, res) {
 
 // Create a new list
 router.post("/input_truck_payment_list", function (req, res) {
-    connection.query("INSERT INTO input_truck_payment_db (input_truck_payment_truck_no, input_truck_payment_owner_id, input_truck_payment_owner_name, input_truck_payment_driver_id, input_truck_payment_driver_name, input_truck_payment_truck_total_amount, input_truck_payment_down_payment, input_truck_payment_sale_date, input_truck_payment_pay_month, input_truck_payment_paid_amount, input_truck_payment_balance_amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [req.body.input_truck_payment_truck_no, req.body.input_truck_payment_owner_id, req.body.input_truck_payment_owner_name, req.body.input_truck_payment_driver_id, req.body.input_truck_payment_driver_name, req.body.input_truck_payment_truck_total_amount, req.body.input_truck_payment_down_payment, req.body.input_truck_payment_sale_date, req.body.input_truck_payment_pay_month, req.body.input_truck_payment_paid_amount, req.body.input_truck_payment_balance_amount], function (err, result) {
+    connection.query("INSERT INTO input_truck_payment_db (input_truck_payment_truck_no, input_truck_payment_owner_id, input_truck_payment_owner_name, input_truck_payment_driver_id, input_truck_payment_driver_name, input_truck_payment_truck_total_amount, input_truck_payment_down_payment, input_truck_payment_sale_date, input_truck_payment_pay_month, input_truck_payment_paid_amount, input_truck_payment_balance_amount, input_truck_payment_this_time_payment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [req.body.input_truck_payment_truck_no, req.body.input_truck_payment_owner_id, req.body.input_truck_payment_owner_name, req.body.input_truck_payment_driver_id, req.body.input_truck_payment_driver_name, req.body.input_truck_payment_truck_total_amount, req.body.input_truck_payment_down_payment, req.body.input_truck_payment_sale_date, req.body.input_truck_payment_pay_month, req.body.input_truck_payment_paid_amount, req.body.input_truck_payment_balance_amount, req.body.input_truck_payment_this_time_payment], function (err, result) {
             if (err) {
                 return res.status(500).end();
             }
