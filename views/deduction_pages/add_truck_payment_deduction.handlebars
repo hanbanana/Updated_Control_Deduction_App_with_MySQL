@@ -168,8 +168,10 @@
                         id="newBalanceAmount" required></p>
                     {{/each}}
 
-                    <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
-                        onclick="window.history.back()">Cancel</button>
+                    {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+                        onclick="window.history.back()">Cancel</button> --}}
+                    <button class="btn btn-secondary btn-sm" id="cancelButton" style="margin-top: 25px">Cancel</button>
+
                     <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Add</button>
                 </div>
 
@@ -179,6 +181,7 @@
 
         {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
+
         <br>
 
     </div>
@@ -214,7 +217,7 @@
             input_truck_payment_sale_date: $("#saleDate").val().trim(),
             input_truck_payment_pay_month: $("#payMonth").val().trim(),
             input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
-             input_truck_payment_this_time_payment: $("#thisTimePayment").val().trim(),
+            input_truck_payment_this_time_payment: $("#thisTimePayment").val().trim(),
             input_truck_payment_balance_amount: $("#newBalanceAmount").text().trim(),
         };
 
@@ -233,11 +236,14 @@
 
     });
 
-
+    // Cancel Button
+    $("#cancelButton").on("click", function () {
+        event.preventDefault();
+        location.assign("/deduction_search_truck");
+    });
 
 
     // Calculate
-
     var truck_total_amount = 0;
     var down_payment = 0;
     var pay_per_month = 0;
