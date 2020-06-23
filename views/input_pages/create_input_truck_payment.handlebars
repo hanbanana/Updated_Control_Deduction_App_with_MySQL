@@ -1,99 +1,9 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
   <br>
-  <h2>Truck Payment</h2>
+  <h2>Truck Payment Input</h2>
   <br>
   <h4>Create</h4>
   <br>
-
-  {{!-- Vertical Input Form
-  <form id="createplan">
-    <div class="form-group row form-horizontal">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">BL</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="BL" name="BL" id="BL">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Terminal Name</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="Terminal Name" name="Terminal_Name" id="Terminal_Name">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Container No.</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="Container No." name="Container_No" id="Container_No">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vasse No.</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="Vassel No." name="Vassel_No" id="Vassel_No">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ETA</label>
-      <div class="col-sm-10">
-        <input type="date" class="form-control form-control-sm" placeholder="ETA" name="ETA" id="ETA">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Weight(kg)</label>
-      <div class="col-sm-10">
-        <input type="number" step="0.001" name="amount" placeholder="0.000" class="form-control form-control-sm"
-          name="Weight" id="Weight">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Seal No.</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="Seal No." name="Seal_No" id="Seal_No">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Delivery Location</label>
-      <div class="col-sm-10">
-        <input class="form-control form-control-sm" placeholder="Delivery Location" name="Delivery_Location"
-          id="Delivery_Location">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Status</label>
-      <div class="col-sm-10">
-        <select class="form-control form-control-sm" name="Status_" id="Status_">
-          <option selected>Choose...</option>
-          <option>Done</option>
-          <option>Pending</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Return</label>
-      <div class="col-sm-10">
-        <select class="form-control form-control-sm" name="Return_" id="Return_">
-          <option selected>Choose...</option>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Close</label>
-      <div class="col-sm-10">
-        <select class="form-control form-control-sm" name="Close_" id="Close_">
-          <option selected>Choose...</option>
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-secondary pull-right" style="display: block; margin: 0 auto;">Save</button>
-  </form> --}}
-
-
-
-
-
 
   {{!-- On One Line Form- --}}
   <div class="formDiv">
@@ -162,8 +72,8 @@
             maxlength="45" required style="width: 200px">
           <br>
           <label for="ex1">Pay/month</label>
-          <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth"
-            type="number" maxlength="45" required style="width: 200px">
+          <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" type="number"
+            maxlength="45" required style="width: 200px">
 
           {{!-- <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
             id="payMonth36" required></p> --}}
@@ -208,11 +118,13 @@
     var pay_per_month = Number($("#payMonth").val());
     var paid_amount = Number($("#paidAmount").val());
 
-    var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+    var result_balance_amount = truck_total_amount - down_payment - paid_amount;
+    var result_balance_amount2 = result_balance_amount.toFixed(2);
+
     var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
     var final_result_pay_per_month = result_pay_per_month / 36;
 
-    $("#balanceAmount").html(result_balance_Amaount);
+    $("#balanceAmount").html(result_balance_amount2);
     $("#payMonth36").html(final_result_pay_per_month);
 
     var newPlan = {
@@ -268,11 +180,13 @@
       var pay_per_month = Number($("#payMonth").val());
       var paid_amount = Number($("#paidAmount").val());
 
-      var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+      var result_balance_amount = truck_total_amount - down_payment - paid_amount;
+      var result_balance_amount2 = result_balance_amount.toFixed(2);
+
       var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
       var final_result_pay_per_month = result_pay_per_month / 36;
 
-      $("#balanceAmount").html(result_balance_Amaount);
+      $("#balanceAmount").html(result_balance_amount2);
       $("#payMonth36").html(final_result_pay_per_month);
 
 

@@ -8,7 +8,7 @@ CREATE TABLE information_truck_db
 id int NOT NULL AUTO_INCREMENT,
 information_owner_no varchar(45) NOT NULL,
 information_owner_us_plate_no VARCHAR(45) NOT NULL,
-information_owner_ms_plate VARCHAR(45) NOT NULL,
+information_owner_mx_plate VARCHAR(45) NOT NULL,
 information_owner_maker VARCHAR(45) NOT NULL,
 information_owner_model varchar(45) NOT NULL,
 information_owner_year VARCHAR(45) NOT NULL,
