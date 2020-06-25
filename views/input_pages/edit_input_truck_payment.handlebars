@@ -15,7 +15,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex3">Truck NO</label>
                     <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
-                        style="width: 100px">
+                        style="width: 200px">
                         <option value="{{this.input_truck_payment_truck_no}}" selected>
                             {{this.input_truck_payment_truck_no}}</option>
                         {{/each}}
@@ -28,7 +28,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex3">Owner No</label>
                     <select class="form-control form-control-sm" name="ownerId" id="ownerId" required
-                        style="width: 100px">
+                        style="width: 200px">
                         <option value="{{this.input_truck_payment_owner_id}}" selected>
                             {{this.input_truck_payment_owner_id}}</option>
                         {{/each}}
@@ -41,7 +41,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex3">Owner Name</label>
                     <select class="form-control form-control-sm" name="ownerName" id="ownerName" required
-                        style="width: 100px">
+                        style="width: 200px">
                         <option value="{{this.input_truck_payment_owner_name}}" selected>
                             {{this.input_truck_payment_owner_name}}</option>
                         {{/each}}
@@ -54,7 +54,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex3">Driver No</label>
                     <select class="form-control form-control-sm" name="driverId" id="driverId" required
-                        style="width: 100px">
+                        style="width: 200px">
                         <option value="{{this.input_truck_payment_driver_id}}" selected>
                             {{this.input_truck_payment_driver_id}}</option>
                         {{/each}}
@@ -67,7 +67,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex3">Driver Name</label>
                     <select class="form-control form-control-sm" name="driverName" id="driverName" required
-                        style="width: 100px">
+                        style="width: 200px">
                         <option value="{{this.input_truck_payment_driver_name}}" selected>
                             {{this.input_truck_payment_driver_name}}</option>
                         {{/each}}
@@ -110,14 +110,20 @@
                 </div>
                 <div class="col-sm">
                     {{#each truckPaymentData}}
+                    <label for="ex2">This Time Payment</label>
+                    <input class="form-control form-control-sm" placeholder="thisTimePayment" name="thisTimePayment"
+                        id="thisTimePayment" type="text" value="{{this.input_truck_payment_this_time_payment}}"
+                        maxlength="200px" required style="width: 200px">
+                    <br>
                     <label for="ex1">Paid Date</label>
                     <input class="form-control form-control-sm" placeholder="paidDate" name="paidDate" id="paidDate"
                         type="date" value="{{this.input_truck_payment_paid_date}}" maxlength="45" required
                         style="width: 200px">
                     <br>
-                    <label for="ex1" id='balanceId'>Balance Amount</label>
-                    <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
-                        id="balanceAmount" required></p>
+                    <label for="ex1">Balance Amount</label>
+                    <input class="form-control form-control-sm" placeholder="balanceAmount" name="balanceAmount"
+                        id="balanceAmount" type="text" value="{{this.input_truck_payment_balance_amount}}"
+                        maxlength="200px" style="width: 200px">
                     {{/each}}
                 </div>
             </div>
@@ -152,8 +158,9 @@
         var down_payment = Number($("#downPayment").val());
         var pay_per_month = Number($("#payMonth").val());
         var paid_amount = Number($("#paidAmount").val());
+            var this_time_payment = Number($("#thisTimePayment").val());
 
-        var result_balance_Amaount = truck_total_amount - down_payment - paid_amount;
+        var result_balance_Amaount = truck_total_amount - down_payment - paid_amount - this_time_payment;
         $("#balanceAmount").html(result_balance_Amaount);
 
         var updatedPlan = {
@@ -167,6 +174,7 @@
             input_truck_payment_sale_date: $("#saleDate").val().trim(),
             input_truck_payment_pay_month: $("#payMonth").val().trim(),
             input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
+            input_truck_payment_this_time_payment: $("#thisTimePayment").val().trim(),
             input_truck_payment_paid_date: $("#paidDate").val().trim(),
             input_truck_payment_balance_amount: $("#balanceAmount").text().trim(),
         };

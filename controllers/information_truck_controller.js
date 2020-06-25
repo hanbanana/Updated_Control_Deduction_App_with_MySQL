@@ -124,14 +124,18 @@ router.get("/information_pages/create_information_truck", function (req, res) {
 
 // Use Handlebars to render the edit_b_division.handlebars page.
 router.get("/information_pages/edit_information_truck/:id", function (req, res) {
-    connection.query("SELECT * FROM information_truck_db where id = ?", [req.params.id], function (err, data) {
-        if (err) {
-            return res.status(500).end();
-        }
-        else if (req.session.user === "adminSession") {
-            console.log(data);
-            res.render("information_pages/edit_information_truck", data[0]);
-        };
+    connection.query("SELECT * FROM information_truck_db where id = ?", [req.params.id], function (err, truckData) {
+        connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {
+            connection.query("SELECT * FROM information_driver_db;", function (err, driverData) {
+                if (err) {
+                    return res.status(500).end();
+                }
+                else if (req.session.user === "adminSession") {
+                    console.log(truckData);
+                    res.render("information_pages/edit_information_truck", {truckData, ownerData, driverData});
+                };
+            });
+        });
     });
 });
 

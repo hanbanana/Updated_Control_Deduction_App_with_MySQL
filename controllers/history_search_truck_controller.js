@@ -108,6 +108,23 @@ router.get("/history_search_truck", authAdmin, function (req, res) {
     });
 });
 
+router.get("/history_pages/list_all_truck_payment_history", authAdmin, function (req, res) {
+    connection.query("SELECT * FROM input_truck_payment_db;", function (err, data) {
+        if (err) {
+            return res.status(500).end();
+        }
+
+        else if (req.session.user === "adminSession" || req.session.admin) {
+            res.render("history_pages/list_all_truck_payment_history", { b_division: data });
+        }
+        else {
+            res.send('Please login to view this page!');
+        }
+
+
+    });
+});
+
 // Use Handlebars to render the create_b_division.handlebars page.
 // router.get("/input_pages/create_input_truck_payment", function (req, res) {
 //     connection.query("SELECT * FROM information_owner_db;", function (err, ownerData) {

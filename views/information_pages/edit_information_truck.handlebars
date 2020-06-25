@@ -7,9 +7,12 @@
 
     {{!-- On One Line Form- --}}
     <div class="formDiv">
+        {{#each truckData}}
         <form data-id="{{this.id}}" class="update-form">
+            {{/each}}
             <div class="form-group-sm row">
                 <div class="col-sm">
+                    {{#each truckData}}
                     <label for="ex1">NO</label>
                     <input class="form-control form-control-sm" placeholder="NO" name="NO" id="NO" maxlength="45"
                         value="{{this.information_truck_no}}" style="width: 200px">
@@ -38,39 +41,81 @@
                     <input class="form-control form-control-sm" placeholder="Color" name="Color" id="Color"
                         maxlength="45" value="{{this.information_truck_color}}" style="width: 200px">
                     <br>
+                    {{/each}}
                 </div>
+
                 <div class="col-sm">
-                    <label for="ex2">Owner No</label>
-                    <input class="form-control form-control-sm" placeholder="ownerNo" name="ownerNo" id="ownerNo"
-                        maxlength="45" value="{{this.information_truck_owner_no}}" style="width: 200px">
-                    <br>
-                    <label for="ex1">Owner Name</label>
-                    <input class="form-control form-control-sm" placeholder="ownerName" name="ownerName" id="ownerName"
-                        maxlength="45" value="{{this.information_truck_owner_name}}" style="width: 200px">
-                    <br>
-                    <label for="ex2">Driver ID</label>
-                    <input class="form-control form-control-sm" placeholder="driverId" name="driverId" id="driverId"
-                        maxlength="45" value="{{this.information_truck_driver_id}}" style="width: 200px">
-                    <br>
-                    <label for="ex1">Driver Name</label>
-                    <input class="form-control form-control-sm" placeholder="driverName" name="driverName"
-                        id="driverName" maxlength="45" value="{{this.information_truck_driver_name}}"
+
+                    {{#each truckData}}
+                    <label for="ex3">Owner No</label>
+                    <select class="form-control form-control-sm" name="ownerNo" id="ownerNo" required
                         style="width: 200px">
+                        <option value="{{this.information_truck_owner_no}}" selected>
+                            {{this.information_truck_owner_no}}</option>
+                        {{/each}}
+                        {{#each ownerData}}
+                        <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
                     <br>
+                    {{#each truckData}}
+                    <label for="ex3">Owner Name</label>
+                    <select class="form-control form-control-sm" name="ownerName" id="ownerName" required
+                        style="width: 200px">
+                        <option value="{{this.information_truck_owner_name}}" selected>
+                            {{this.information_truck_owner_name}}</option>
+                        {{/each}}
+                        {{#each ownerData}}
+                        <option value="{{this.information_owner_name}}">{{this.information_owner_name}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each truckData}}
+                    <label for="ex3">Driver ID</label>
+                    <select class="form-control form-control-sm" name="driverId" id="driverId" required
+                        style="width: 200px">
+                        <option value="{{this.information_truck_driver_id}}" selected>
+                            {{this.information_truck_driver_id}}</option>
+                        {{/each}}
+                        {{#each driverData}}
+                        <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each truckData}}
+                    <label for="ex3">Driver Name</label>
+                    <select class="form-control form-control-sm" name="driverName" id="driverName" required
+                        style="width: 200px">
+                        <option value="{{this.information_truck_driver_name}}" selected>
+                            {{this.information_truck_driver_name}}</option>
+                        {{/each}}
+                        {{#each driverData}}
+                        <option value="{{this.input_truck_payment_driver_name}}">
+                            {{this.input_truck_payment_driver_name}}</option>
+                        {{/each}}
+                        {{!-- <option>Pending</option> --}}
+                    </select>
+                    <br>
+                    {{#each truckData}}
                     <label for="ex2">Registration Name</label>
                     <input class="form-control form-control-sm" placeholder="registrationName" name="registrationName"
                         id="registrationName" maxlength="45" value="{{this.information_truck_registration_name}}"
                         style="width: 200px">
+                    {{/each}}
                     <br>
+                    {{#each truckData}}
                     <label for="ex1">RFID Tag</label>
                     <input class="form-control form-control-sm" placeholder="rfidTag" name="rfidTag" id="rfidTag"
                         maxlength="45" value="{{this.information_truck_rfid_tag}}" style="width: 200px">
+                    {{/each}}
                     <br>
 
-          
                 </div>
             </div>
-                        <div class="form-group-sm row">
+            <div class="form-group-sm row">
                 <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
 
 
