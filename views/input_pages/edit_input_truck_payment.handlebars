@@ -93,7 +93,7 @@
                     <br>
                     <label for="ex1">Sale Date</label>
                     <input class="form-control form-control-sm" placeholder="saleDate" name="saleDate" id="saleDate"
-                        type="text" value="{{this.input_truck_payment_sale_date}}" maxlength="45" required
+                        type="date" value="{{this.input_truck_payment_sale_date}}" maxlength="45" required
                         style="width: 200px">
                     <br>
                     <label for="ex1">Pay/month</label>
@@ -112,7 +112,7 @@
                     {{#each truckPaymentData}}
                     <label for="ex1">Paid Date</label>
                     <input class="form-control form-control-sm" placeholder="paidDate" name="paidDate" id="paidDate"
-                        type="text" value="{{this.input_truck_payment_paid_date}}" maxlength="45" required
+                        type="date" value="{{this.input_truck_payment_paid_date}}" maxlength="45" required
                         style="width: 200px">
                     <br>
                     <label for="ex1" id='balanceId'>Balance Amount</label>
@@ -180,7 +180,7 @@
             function () {
                 console.log("updated!");
                 // Reload the page to get the updated list
-                location.assign("/input_truck_payment");
+                location.assign("/history_search_truck");
             }
         );
 
