@@ -143,7 +143,7 @@
           <input class="form-control form-control-sm" placeholder="payMonth" name="payMonth" id="payMonth" type="text"
             value="{{this.input_truck_payment_pay_month}}" maxlength="45" disabled style="width: 200px">
           <br>
-          <label for="ex2">Paid Amount</label>
+          <label for="ex2">Total Paid Balance Amount</label>
           <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount" id="paidAmount"
             type="text" value="{{this.input_truck_payment_paid_amount}}" maxlength="200px" disabled
             style="width: 200px">
@@ -206,6 +206,10 @@
 
     var result_balance_amount = balance_amount - this_time_payment;
     var result_balance_amount2 = result_balance_amount.toFixed(2);
+
+        var result_total_paid_balance_amount = paid_amount + this_time_payment;
+    var result_total_paid_balance_amount2 = result_total_paid_balance_amount.toFixed(2);
+
     $("#newBalanceAmount").html(result_balance_amount2);
 
     var newPlan = {
@@ -218,7 +222,7 @@
       input_truck_payment_down_payment: $("#downPayment").val().trim(),
       input_truck_payment_sale_date: $("#saleDate").val().trim(),
       input_truck_payment_pay_month: $("#payMonth").val().trim(),
-      input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
+      input_truck_payment_paid_amount: result_total_paid_balance_amount2,
       input_truck_payment_this_time_payment: $("#thisTimePayment").val().trim(),
       input_truck_payment_paid_date: $("#paidDate").val().trim(),
       input_truck_payment_balance_amount: $("#newBalanceAmount").text().trim(),

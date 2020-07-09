@@ -79,10 +79,15 @@
             id="payMonth36" required></p> --}}
 
           <br>
-          <label for="ex2">Paid Amount</label>
+          <label for="ex1">Total Paid Balance Amount</label>
+
+          <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
+            id="totalPaidBalanceAmount" required></p>
+          <br>
+          {{!-- <label for="ex2">Paid Amount</label>
           <input class="form-control form-control-sm" placeholder="paidAmount" name="paidAmount" id="paidAmount"
             type="currency" maxlength="200px" required style="width: 200px">
-          <br>
+          <br> --}}
         </div>
         <div class="col-sm">
           <label for="ex2">Paid Date</label>
@@ -124,13 +129,18 @@
     var pay_per_month = Number($("#payMonth").val());
     var paid_amount = Number($("#paidAmount").val());
 
-    var result_balance_amount = truck_total_amount - down_payment - paid_amount;
+    var result_balance_amount = truck_total_amount - down_payment;
     var result_balance_amount2 = result_balance_amount.toFixed(2);
+    {{!-- var result_balance_amount2 = result_balance_amount.toLocaleString("en-US"); --}}
+
+    var result_total_paid_balance_amount = down_payment;
+    var result_total_paid_balance_amount2 = result_total_paid_balance_amount.toFixed(2);
 
     var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
     var final_result_pay_per_month = result_pay_per_month / 36;
 
     $("#balanceAmount").html(result_balance_amount2);
+    $("#totalPaidBalanceAmount").html(result_total_paid_balance_amount2);
     $("#payMonth36").html(final_result_pay_per_month);
 
 
@@ -145,7 +155,7 @@
       input_truck_payment_down_payment: $("#downPayment").val().trim(),
       input_truck_payment_sale_date: $("#saleDate").val().trim(),
       input_truck_payment_pay_month: $("#payMonth").val().trim(),
-      input_truck_payment_paid_amount: $("#paidAmount").val().trim(),
+      input_truck_payment_paid_amount: $("#totalPaidBalanceAmount").text().trim(),
       input_truck_payment_paid_date: $("#paidDate").val().trim(),
       input_truck_payment_balance_amount: $("#balanceAmount").text().trim(),
     };
@@ -168,7 +178,7 @@
 
 
 
-  // Calculate
+  // Calculate Balance Amount
 
   var truck_total_amount = 0;
   var down_payment = 0;
@@ -189,10 +199,10 @@
       var pay_per_month = Number($("#payMonth").val());
       var paid_amount = Number($("#paidAmount").val());
 
-      var result_balance_amount = truck_total_amount - down_payment - paid_amount;
-      var result_balance_amount2 = result_balance_amount.toLocaleString("en-US");
+      var result_balance_amount = truck_total_amount - down_payment;
+      var result_balance_amount2 = result_balance_amount.toFixed(2);
 
-      var result_pay_per_month = truck_total_amount - down_payment - paid_amount;
+      var result_pay_per_month = truck_total_amount - down_payment;
       var final_result_pay_per_month = result_pay_per_month / 36;
 
       $("#balanceAmount").html(result_balance_amount2);
@@ -215,60 +225,29 @@
   });
 
 
+  // Calculate Total Paid Balance Amount
 
-  // Add commas every three characters
+  $("#totalPaidBalanceAmount").on("click", function () {
+    event.preventDefault();
 
-  {{!-- var currencyInputTruckTotalAmount = document.querySelector('input[id="truckTotalAmount"]')
-  var currencyInputDownPayment = document.querySelector('input[id="downPayment"]')
-  var currencyInputPayMonth = document.querySelector('input[id="payMonth"]')
-  var currencyInputPaidAmount = document.querySelector('input[id="paidAmount"]')
-  var currency = 'USD' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+    calculate();
+    function calculate() {
 
-  // format inital value
-  onBlur({ target: currencyInputTruckTotalAmount })
-  onBlur({ target: currencyInputDownPayment })
-  onBlur({ target: currencyInputPayMonth })
-  onBlur({ target: currencyInputPaidAmount })
+      var truck_total_amount = Number($("#truckTotalAmount").val());
+      var down_payment = Number($("#downPayment").val());
+      var pay_per_month = Number($("#payMonth").val());
+      var paid_amount = Number($("#paidAmount").val());
 
+      var result_total_paid_balance_amount = down_payment;
+      var result_total_paid_balance_amount2 = result_total_paid_balance_amount.toFixed(2);
 
-  // bind event listeners
-  currencyInputTruckTotalAmount.addEventListener('focus', onFocus)
-  currencyInputTruckTotalAmount.addEventListener('blur', onBlur)
+      $("#totalPaidBalanceAmount").html(result_total_paid_balance_amount2);
 
-  currencyInputDownPayment.addEventListener('focus', onFocus)
-  currencyInputDownPayment.addEventListener('blur', onBlur)
-
-  currencyInputPayMonth.addEventListener('focus', onFocus)
-  currencyInputPayMonth.addEventListener('blur', onBlur)
-
-  currencyInputPaidAmount.addEventListener('focus', onFocus)
-  currencyInputPaidAmount.addEventListener('blur', onBlur)
+      console.log(result_balance_Amaount);
+    };
+  });
 
 
-
-
-  function localStringToNumber(s) {
-    return Number(String(s).replace(/[^0-9.-]+/g, ""))
-  }
-
-  function onFocus(e) {
-    var value = e.target.value;
-    e.target.value = value ? localStringToNumber(value) : ''
-  }
-
-  function onBlur(e) {
-    var value = e.target.value
-
-    var options = {
-      maximumFractionDigits: 2,
-      currency: currency,
-      style: "currency",
-      currencyDisplay: "symbol"
-    }
-
-    e.target.value = value
-      ? localStringToNumber(value).toLocaleString(undefined, options)
-      : ''
-  } --}}
+ 
 
 </script>
