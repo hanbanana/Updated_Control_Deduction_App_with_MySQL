@@ -1,0 +1,80 @@
+<div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
+
+  <br>
+  <h2>Truck Payment History List</h2>
+  {{!-- <label class="heading">Owner History</label> --}}
+  <br>
+  {{!-- <a href="/input_pages/create_input_truck_payment" style="font-size: 20px">Create</a> --}}
+  <br><br>
+
+  <div class="form-group" style="width: 1000px">
+    <fieldset>
+      <form action="" class="form-group">
+
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              {{!-- <th scope="col" data-sortable="true">ID#</th> --}}
+              <th scope="col">Truck NO</th>
+              <th scope="col">Owner Id</th>
+              <th scope="col">Owner name</th>
+              <th scope="col">driver id</th>
+              <th scope="col">Driver name</th>
+              <th scope="col">Truck Total Amount</th>
+              <th scope="col">Down Payment</th>
+              <th scope="col">Sale Date</th>
+              <th scope="col">Pay/month</th>
+              <th scope="col">Total Paid Balance Amount</th>
+              <th scope="col">This Time Payment</th>
+              <th scope="col">Paid Date</th>
+              <th scope="col">Balance Amount</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each truckPaymentData}}
+            <tr>
+              {{!-- <td>{{this.id}}</td> --}}
+              <td style="width:50px">{{this.input_truck_payment_truck_no}}</td>
+              <td style="width:100px">{{this.input_truck_payment_owner_id}}</td>
+              <td style="width:50px">{{this.input_truck_payment_owner_name}}</td>
+              <td style="width:100px">{{this.input_truck_payment_driver_id}}</td>
+              <td style="width:50px">{{this.input_truck_payment_driver_name}}</td>
+              <td style="width:100px">{{this.input_truck_payment_truck_total_amount}}</td>
+              <td style="width:50px">{{this.input_truck_payment_down_payment}}</td>
+              <td style="width:100px">{{this.input_truck_payment_sale_date}}</td>
+              <td style="width:50px">{{this.input_truck_payment_pay_month}}</td>
+              <td style="width:100px">{{this.input_truck_payment_paid_amount}}</td>
+              <td style="width:50px">{{this.input_truck_payment_this_time_payment}}</td>
+              <td style="width:100px">{{this.input_truck_payment_paid_date}}</td>
+              <td style="width:50px">{{this.input_truck_payment_balance_amount}}</td>
+              <td style="width:50px"><a href="/input_pages/delete_input_truck_payment/{{this.id}}">Delete</a>
+              </td>
+              <td style="width:50px"><a href="/input_pages/edit_input_truck_payment/{{this.id}}">Edit</a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+
+        </table>
+
+      </form>
+      <!--END OF FORM ^^-->
+    </fieldset>
+
+    <hr />
+  </div>
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    $('#example').DataTable();
+  });
+
+</script>

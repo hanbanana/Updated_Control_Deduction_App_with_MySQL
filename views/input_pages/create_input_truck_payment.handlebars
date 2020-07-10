@@ -144,6 +144,11 @@
     $("#payMonth36").html(final_result_pay_per_month);
 
 
+var truck_total_amount2 = truck_total_amount.toFixed(2);
+var down_payment2 = down_payment.toFixed(2);
+ var pay_per_month2 = pay_per_month.toFixed(2);
+ 
+
 
     var newPlan = {
       input_truck_payment_truck_no: $("#truckNo").val().trim(),
@@ -151,7 +156,7 @@
       input_truck_payment_owner_name: $("#ownerName").val().trim(),
       input_truck_payment_driver_id: $("#driverId").val().trim(),
       input_truck_payment_driver_name: $("#driverName").val().trim(),
-      input_truck_payment_truck_total_amount: $("#truckTotalAmount").val().trim(),
+      input_truck_payment_truck_total_amount: truck_total_amount2,
       input_truck_payment_down_payment: $("#downPayment").val().trim(),
       input_truck_payment_sale_date: $("#saleDate").val().trim(),
       input_truck_payment_pay_month: $("#payMonth").val().trim(),

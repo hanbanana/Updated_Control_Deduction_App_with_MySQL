@@ -28,7 +28,10 @@ var routes_information_truck = require("./controllers/information_truck_controll
 var routes_input_truck_payment = require("./controllers/input_truck_payment_controller");
 var routes_input_part_purchase = require("./controllers/input_part_purchase_controller");
 var routes_deduction_search_truck = require("./controllers/deduction_search_truck_controller");
+var routes_deduction_search_part = require("./controllers/deduction_search_part_controller");
 var routes_history_search_truck = require("./controllers/history_search_truck_controller");
+var routes_history_search_part = require("./controllers/history_search_part_controller");
+
 
 app.use(routes_information_owner);
 app.use(routes_information_driver);
@@ -36,7 +39,9 @@ app.use(routes_information_truck);
 app.use(routes_input_truck_payment);
 app.use(routes_input_part_purchase);
 app.use(routes_deduction_search_truck);
+app.use(routes_deduction_search_part);
 app.use(routes_history_search_truck);
+app.use(routes_history_search_part);
 
 
 // first login page
