@@ -1,7 +1,7 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
 
     <br>
-    <h2>All Truck Payment History List</h2>
+    <h2>All Part Payment History List</h2>
     {{!-- <label class="heading">Owner History</label> --}}
     <br>
     {{!-- <a href="/input_pages/create_input_truck_payment" style="font-size: 20px">Create</a> --}}
@@ -15,19 +15,19 @@
                     <thead>
                         <tr>
                             {{!-- <th scope="col" data-sortable="true">ID#</th> --}}
+                            <th scope="col">Status</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Truck NO</th>
                             <th scope="col">Owner Id</th>
-                            <th scope="col">Owner name</th>
-                            <th scope="col">driver id</th>
-                            <th scope="col">Driver name</th>
-                            <th scope="col">Truck Total Amount</th>
-                            <th scope="col">Down Payment</th>
-                            <th scope="col">Sale Date</th>
-                            <th scope="col">Pay/month</th>
-                            <th scope="col">Total Paid Balance Amount</th>
-                            <th scope="col">This Time Payment</th>
-                            <th scope="col">Paid Date</th>
-                            <th scope="col">Balance Amount</th>
+                            <th scope="col">Driver No</th>
+                            <th scope="col">Invoice No</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Pay/week</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Add Pay</th>
+                            <th scope="col">CR</th>
+                            <th scope="col">Invoice</th>
+                            <th scope="col">DESC</th>
                             <th scope="col">Delete</th>
                             <th scope="col">Edit</th>
                         </tr>
@@ -37,23 +37,23 @@
                         {{#each b_division}}
                         <tr>
                             {{!-- <td>{{this.id}}</td> --}}
-                            <td style="width:50px">{{this.input_truck_payment_truck_no}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_owner_id}}</td>
-                            <td style="width:50px">{{this.input_truck_payment_owner_name}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_driver_id}}</td>
-                            <td style="width:50px">{{this.input_truck_payment_driver_name}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_truck_total_amount}}</td>
-                            <td style="width:50px">{{this.input_truck_payment_down_payment}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_sale_date}}</td>
-                            <td style="width:50px">{{this.input_truck_payment_pay_month}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_paid_amount}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_this_time_payment}}</td>
-                            <td style="width:100px">{{this.input_truck_payment_paid_date}}</td>
-                            <td style="width:50px">{{this.input_truck_payment_balance_amount}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_status}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_type}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_truck_no}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_owner_id}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_driver_id}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_invoice_no}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_amount}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_pay_week}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_date}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_add_pay}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_cr}}</td>
+                            <td style="width:100px">{{this.input_part_purchase_invoice}}</td>
+                            <td style="width:50px">{{this.input_part_purchase_desc}}</td>
                             <td style="width:50px"><a
-                                    href="/input_pages/delete_input_truck_payment/{{this.id}}">Delete</a>
+                                    href="/input_pages/delete_input_part_purchase/{{this.id}}">Delete</a>
                             </td>
-                            <td style="width:50px"><a href="/input_pages/edit_input_truck_payment/{{this.id}}">Edit</a>
+                            <td style="width:50px"><a href="/input_pages/edit_input_part_purchase/{{this.id}}">Edit</a>
                             </td>
                         </tr>
                         {{/each}}

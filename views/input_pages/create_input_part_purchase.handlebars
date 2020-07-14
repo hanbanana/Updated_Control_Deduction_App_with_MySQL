@@ -1,11 +1,11 @@
 <div style="margin-left: 200px; margin-right: 200px; font-size: 13px">
-    <br>
-    <h2>Part Purchase Input</h2>
-    <br>
-    <h4>Create</h4>
-    <br>
+  <br>
+  <h2>Part Purchase Input</h2>
+  <br>
+  <h4>Create</h4>
+  <br>
 
-    {{!-- Vertical Input Form
+  {{!-- Vertical Input Form
   <form id="createplan">
     <div class="form-group row form-horizontal">
       <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">BL</label>
@@ -95,107 +95,111 @@
 
 
 
-    {{!-- On One Line Form- --}}
-    <div class="formDiv">
+  {{!-- On One Line Form- --}}
+  <div class="formDiv">
 
-        <form id="createplan">
-            <div class="form-group-sm row">
-                <div class="col-sm">
-                    <label for="ex3">Status</label>
-                    <select class="form-control form-control-sm" name="Status" id="Status" required
-                        style="width: 100px">
-                        <option value="" disabled selected>Choose...</option>
-                        <option value="Open">Open</option>
-                        <option value="Close">Close</option>
-                        {{!-- <option>Pending</option> --}}
-                    </select>
-                    <br>
-                    <label for="ex3">Type</label>
-                    <select class="form-control form-control-sm" name="Type" id="Type" required style="width: 100px">
-                        <option value="" disabled selected>Choose...</option>
-                        <option value="S">S</option>
-                        <option value="F">F</option>
-                        {{!-- <option>Pending</option> --}}
-                    </select>
-                    <br>
-                    <label for="ex3">Truck NO</label>
-                    <select class="form-control form-control-sm" name="truckNo" id="truckNo" required
-                        style="width: 100px">
-                        <option value="" disabled selected>Choose...</option>
-                        {{#each input_truck}}
-                        <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
-                        {{/each}}
-                        {{!-- <option>Pending</option> --}}
-                    </select>
-                    <br>
-                    <label for="ex3">Owner Id</label>
-                    <select class="form-control form-control-sm" name="ownerId" id="ownerId" required
-                        style="width: 100px">
-                        <option value="" disabled selected>Choose...</option>
-                        {{#each information_owner}}
-                        <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
-                        {{/each}}
-                        {{!-- <option>Pending</option> --}}
-                    </select>
-                    <br>
-                    <label for="ex3">Driver No</label>
-                    <select class="form-control form-control-sm" name="driverId" id="driverId" required
-                        style="width: 100px">
-                        <option value="" disabled selected>Choose...</option>
-                        {{#each information_driver}}
-                        <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
-                        {{/each}}
-                        {{!-- <option>Pending</option> --}}
-                    </select>
-                    <br>
-                    <label for="ex2">Invoice No</label>
-                    <input class="form-control form-control-sm" placeholder="Invoice No" name="invoiceNo" id="invoiceNo"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                </div>
-                <div class="col-sm">
-                    <label for="ex2">Amount</label>
-                    <input class="form-control form-control-sm" placeholder="Amount" name="Amount" id="Amount"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">Pay/week</label>
-                    <input class="form-control form-control-sm" placeholder="payWeek" name="payWeek" id="payWeek"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">Date</label>
-                    <input class="form-control form-control-sm" placeholder="Date" name="Date" id="Date" maxlength="45"
-                        required style="width: 200px">
-                    <br>
-                    <label for="ex1">Add Pay</label>
-                    <input class="form-control form-control-sm" placeholder="addPay" name="addPay" id="addPay"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex2">CR</label>
-                    <input class="form-control form-control-sm" placeholder="CR" name="CR" id="CR" maxlength="200px"
-                        required style="width: 200px">
-                    <br>
-                    <label for="ex1">Invoice</label>
-                    <input class="form-control form-control-sm" placeholder="Invoice" name="Invoice" id="Invoice"
-                        maxlength="45" required style="width: 200px">
-                    <br>
-                    <label for="ex1">DESC</label>
-                    <input class="form-control form-control-sm" placeholder="DESC" name="DESC" id="DESC"
-                        maxlength="45" required style="width: 200px">
-                    <br>
+    <form id="createplan">
+      <div class="form-group-sm row">
+        <div class="col-sm">
+          <label for="ex3">Status</label>
+          <select class="form-control form-control-sm" name="Status" id="Status" required style="width: 200px">
+            <option value="" disabled selected>Choose...</option>
+            <option value="Open">Open</option>
+            <option value="Close">Close</option>
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+          <label for="ex3">Type</label>
+          <select class="form-control form-control-sm" name="Type" id="Type" required style="width: 200px">
+            <option value="" disabled selected>Choose...</option>
+            <option value="S">S</option>
+            <option value="F">F</option>
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+          <label for="ex3">Truck NO</label>
+          <select class="form-control form-control-sm" name="truckNo" id="truckNo" required style="width: 200px">
+            <option value="" disabled selected>Choose...</option>
+            {{#each input_truck}}
+            <option value="{{this.information_truck_no}}">{{this.information_truck_no}}</option>
+            {{/each}}
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+          <label for="ex3">Owner Id</label>
+          <select class="form-control form-control-sm" name="ownerId" id="ownerId" required style="width: 200px">
+            <option value="" disabled selected>Choose...</option>
+            {{#each information_owner}}
+            <option value="{{this.information_owner_no}}">{{this.information_owner_no}}</option>
+            {{/each}}
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+          <label for="ex3">Driver No</label>
+          <select class="form-control form-control-sm" name="driverId" id="driverId" required style="width: 200px">
+            <option value="" disabled selected>Choose...</option>
+            {{#each information_driver}}
+            <option value="{{this.information_driver_no}}">{{this.information_driver_no}}</option>
+            {{/each}}
+            {{!-- <option>Pending</option> --}}
+          </select>
+          <br>
+        </div>
 
-                    <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
-                        onclick="window.history.back()">Cancel</button>
-                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
-                </div>
+        <div class="col-sm">
+          <label for="ex2">Invoice No</label>
+          <input class="form-control form-control-sm" placeholder="Invoice No" name="invoiceNo" id="invoiceNo"
+            maxlength="45" required style="width: 200px">
 
-            </div>
-        </form>
+          {{!-- <p style='border: 2px solid grey; border-radius: .2rem; padding-top: 2px; padding-left: 5px; width: 200px; height: 30px'
+            id="invoiceNumberGenerate" required></p> --}}
 
-        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+          <br>
+          <label for="ex2">Amount</label>
+          <input class="form-control form-control-sm" placeholder="Amount" name="Amount" id="Amount" maxlength="45"
+            required style="width: 200px">
+          <br>
+          <label for="ex1">Pay/week</label>
+          <input class="form-control form-control-sm" placeholder="payWeek" name="payWeek" id="payWeek" maxlength="45"
+            required style="width: 200px">
+          <br>
+          <label for="ex1">Date</label>
+          <input class="form-control form-control-sm" placeholder="Date" name="Date" id="Date" type="date"
+            maxlength="45" required style="width: 200px">
+          <br>
+          <label for="ex1">Add Pay</label>
+          <input class="form-control form-control-sm" placeholder="addPay" name="addPay" id="addPay" maxlength="45"
+            required style="width: 200px">
+          <br>
+        </div>
+
+        <div class="col-sm">
+          <label for="ex2">CR</label>
+          <input class="form-control form-control-sm" placeholder="CR" name="CR" id="CR" maxlength="200px" required
+            style="width: 200px">
+          <br>
+          <label for="ex1">Invoice</label>
+          <input class="form-control form-control-sm" placeholder="Invoice" name="Invoice" id="Invoice" maxlength="45"
+            required style="width: 200px">
+          <br>
+          <label for="ex1">DESC</label>
+          <input class="form-control form-control-sm" placeholder="DESC" name="DESC" id="DESC" maxlength="45" required
+            style="width: 200px">
+          <br>
+
+          <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
+          <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Save</button>
+        </div>
+
+      </div>
+    </form>
+
+    {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
-        <br>
+    <br>
 
-    </div>
+  </div>
 
 </div>
 <br>
@@ -203,37 +207,62 @@
 <script type="text/javascript">
 
 
-    $("#createplan").on("submit", function (event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
+  $("#createplan").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
-        var newPlan = {
-            input_part_purchase_status: $("#Status").val().trim(),
-            input_part_purchase_type: $("#Type").val().trim(),
-            input_part_purchase_truck_no: $("#truckNo").val().trim(),
-            input_part_purchase_owner_id: $("#ownerId").val().trim(),
-            input_part_purchase_driver_id: $("#driverId").val().trim(),
-            input_part_purchase_invoice_no: $("#invoiceNo").val().trim(),
-            input_part_purchase_amount: $("#Amount").val().trim(),
-            input_part_purchase_pay_week: $("#payWeek").val().trim(),
-            input_part_purchase_date: $("#Date").val().trim(),
-            input_part_purchase_add_pay: $("#addPay").val().trim(),
-            input_part_purchase_cr: $("#CR").val().trim(),
-            input_part_purchase_invoice: $("#Invoice").val().trim(),
-            input_part_purchase_desc: $("#DESC").val().trim(),
-        };
+    var newPlan = {
+      input_part_purchase_status: $("#Status").val().trim(),
+      input_part_purchase_type: $("#Type").val().trim(),
+      input_part_purchase_truck_no: $("#truckNo").val().trim(),
+      input_part_purchase_owner_id: $("#ownerId").val().trim(),
+      input_part_purchase_driver_id: $("#driverId").val().trim(),
+      input_part_purchase_invoice_no: $("#invoiceNo").val().trim(),
+      input_part_purchase_amount: $("#Amount").val().trim(),
+      input_part_purchase_pay_week: $("#payWeek").val().trim(),
+      input_part_purchase_date: $("#Date").val().trim(),
+      input_part_purchase_add_pay: $("#addPay").val().trim(),
+      input_part_purchase_cr: $("#CR").val().trim(),
+      input_part_purchase_invoice: $("#Invoice").val().trim(),
+      input_part_purchase_desc: $("#DESC").val().trim(),
+    };
 
-        // Send the POST request.
-        $.ajax("/input_part_purchase_list", {
-            type: "POST",
-            data: newPlan
-        }).then(
-            function () {
-                console.log("created new plan");
-                // Reload the page to get the updated list
-                location.assign("/input_part_purchase");
-            }
-        );
-    });
+    // Send the POST request.
+    $.ajax("/input_part_purchase_list", {
+      type: "POST",
+      data: newPlan
+    }).then(
+      function () {
+        console.log("created new plan");
+        // Reload the page to get the updated list
+        location.assign("/input_part_purchase");
+      }
+    );
+  });
+
+
+  // Automatic Invoice Number Generate
+  $("#invoiceNumberGenerate").on("click", function () {
+    event.preventDefault();
+
+    fncCreateId();
+
+
+
+    function fncCreateId() {
+      var cnt = 0;
+      var dt = new Date();
+
+      cnt++;
+      if (cnt > 999) cnt = 0;
+      var newDateNumbers = "SD" + Date.parse(dt);
+      var newNumbers = newDateNumbers.slice(0, 12);
+      $("#invoiceNumberGenerate").html(newNumbers);
+
+      console.log(newNumbers.slice(0, 12));
+
+    };
+  });
+
 
 </script>

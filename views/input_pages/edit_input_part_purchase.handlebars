@@ -21,7 +21,7 @@
                         {{/each}}
                         <option value="Open">Open</option>
                         <option value="Close">Close</option>
-                        
+
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
@@ -75,16 +75,16 @@
                         {{!-- <option>Pending</option> --}}
                     </select>
                     <br>
-                      {{#each partPurchaseData}}
+                </div>
+
+                <div class="col-sm">
+                    {{#each partPurchaseData}}
                     <label for="ex1">Invoice No</label>
                     <input class="form-control form-control-sm" placeholder="invoiceNo" name="invoiceNo" id="invoiceNo"
                         type="text" value="{{this.input_part_purchase_invoice_no}}" maxlength="45" required
                         style="width: 200px">
-                         {{/each}}
+                    {{/each}}
                     <br>
-
-                </div>
-                <div class="col-sm">
                     {{#each partPurchaseData}}
                     <label for="ex2">Amount</label>
                     <input class="form-control form-control-sm" placeholder="Amount" name="Amount" id="Amount"
@@ -97,7 +97,7 @@
                         style="width: 200px">
                     <br>
                     <label for="ex1">Date</label>
-                    <input class="form-control form-control-sm" placeholder="Date" name="Date" id="Date" type="text"
+                    <input class="form-control form-control-sm" placeholder="Date" name="Date" id="Date" type="date"
                         value="{{this.input_part_purchase_date}}" maxlength="45" required style="width: 200px">
                     <br>
                     <label for="ex1">Add Pay</label>
@@ -105,10 +105,12 @@
                         type="text" value="{{this.input_part_purchase_add_pay}}" maxlength="45" required
                         style="width: 200px">
                     <br>
+                </div>
+
+                <div class="col-sm">
                     <label for="ex2">CR</label>
                     <input class="form-control form-control-sm" placeholder="CR" name="CR" id="CR" type="text"
-                        value="{{this.input_part_purchase_cr}}" maxlength="200px" required
-                        style="width: 200px">
+                        value="{{this.input_part_purchase_cr}}" maxlength="200px" required style="width: 200px">
                     <br>
                     <label for="ex1">Invoice</label>
                     <input class="form-control form-control-sm" placeholder="Invoice" name="Invoice" id="Invoice"
@@ -116,9 +118,8 @@
                         style="width: 200px">
                     <br>
                     <label for="ex1">DESC</label>
-                    <input class="form-control form-control-sm" placeholder="DESC" name="DESC" id="DESC"
-                        type="text" value="{{this.input_part_purchase_desc}}" maxlength="45" required
-                        style="width: 200px">
+                    <input class="form-control form-control-sm" placeholder="DESC" name="DESC" id="DESC" type="text"
+                        value="{{this.input_part_purchase_desc}}" maxlength="45" required style="width: 200px">
                     <br>
                     {{/each}}
                 </div>
